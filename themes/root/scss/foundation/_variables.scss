@@ -7,23 +7,23 @@ $narrow-container                 : 960px;
 $narrow-container-md              : 750px;
 
 // グリッドの間隔
-$grid-space                       : 15px;
-$grid-space-mobile                : 10px;
-$sp-container                     : 20px;
+$grid-space                       : 30px;
+$grid-space-mobile                : 20px;
 
 // ------------------------------
 //　フォント
 // ------------------------------
-$font-base                        : "游ゴシック", YuGothic, "ヒラギノ角ゴ pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
-//$font-base: "ヒラギノ角ゴ Pro", $font-base;
-$font-heading                     : TsukuOldGothicStd-B, sans-serif;
-$font-en: ModeMinAStd-B , $font-base;
+$font-hiragino: "ヒラギノ角ゴ pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+$font-yu-gothic                        : "游ゴシック", YuGothic, "ヒラギノ角ゴ pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+$font-meiryo       : Meiryo,'メイリオ',"ヒラギノ角ゴ pro", "Hiragino Kaku Gothic Pro",'ＭＳ Ｐゴシック','MS PGothic',Verdana,sans-serif;
+$font-base                        : $font-hiragino;
+$font-heading                     : $font-base;
 
 // ------------------------------
 //　ファイルのパス
 // ------------------------------
 $acms-font                        : '/themes/system/fonts/'; // フォントのパスを上書き
-$root-theme-img                   : '/themes/takisada/images/'; // 画像のパスを上書き
+$root-theme-img                   : '/themes/**/images/'; // 画像のパスを上書き
 
 // ------------------------------
 //　カラー
@@ -37,8 +37,6 @@ $primary-color                    : #ffd93c;
 $secondary-color                  : #333;
 // ベースカラー
 $base-color                       : #ffed1f;
-
-$fav-color                        : #d0011b;
 
 // ボタン
 $btn-color                        : #333;
@@ -64,33 +62,6 @@ $entry-margin-bottom              : 25px;
 $entry-element-margin-bottom-sm   : 10px !default;
 $entry-element-margin-bottom-md   : 25px !default;
 $entry-element-margin-bottom-lg   : 30px !default;
-
-// ------------------------------
-//　スライダー
-// ------------------------------
-$main-slider-height-mobile        : 300px;
-$main-slider-height-desktop       : 450px;
-
-
-// ------------------------------
-//　カードレイアウト
-// ------------------------------
-$card-grid-mobile-space: 10px;
-$card-grid-space: 30px;
-
-// ------------------------------
-//　ギャラリー
-// ------------------------------
-$gallery-grid-space: 30px;
-
-// 正方形ギャラリー
-$gallery-square-grid-space-mobile: 2px;
-$gallery-square-grid-space: 20px;
-
-// ------------------------------
-//　サムネイル
-// ------------------------------
-$thumbnail-grid-space: 30px;
 
 // ------------------------------
 //　フォーム
