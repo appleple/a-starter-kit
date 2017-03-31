@@ -1,0 +1,18 @@
+<table class="adminTable acms-admin-table-admin-edit">
+  <tr>
+    <th>OGP画像<i data-acms-tooltip="Facebook等で利用するOGP画像を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+    <td>
+      <!-- BEGIN ogp_image@path:veil -->
+      <img src="%{ARCHIVES_DIR}{ogp_image@path}" style="max-width:100%;" />
+      <input type="hidden" name="ogp_image@old" value="{ogp_image@path}" /><br />
+      <label>
+        <input type="checkbox" name="ogp_image@edit" value="delete" />削除
+      </label>
+      <!-- END ogp_image@path:veil -->
+      <input type="file" name="ogp_image" size="20" />
+      <input type="hidden" name="field[]" value="ogp_image" />
+      <input type="hidden" name="ogp_image:extension" value="image" />
+      <input type="hidden" name="ogp_image@size" value="1200" />
+    </td>
+  </tr>
+</table>
