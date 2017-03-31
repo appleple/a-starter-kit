@@ -1,0 +1,21 @@
+<tr>
+	<th><!--T-->出力設定<!--/T--> - <small>output</small></th>
+	<td>
+		<!-- BEGIN_MODULE Blog_Field -->
+		<!-- BEGIN_IF [{blog_meta_sitemap}/eq/disabled] -->
+		<span class="acms-admin-label acms-admin-label-danger acms-admin-inline-space"><!--T-->sitemap.xmlに出力しない<!--/T--></span><!-- END_MODULE Blog_Field --><!-- BEGIN_MODULE Category_Field --><!-- ELSE_IF [{category_meta_sitemap}/eq/disabled] --><span class="acms-admin-label acms-admin-label-danger acms-admin-inline-space"><!--T-->sitemap.xmlに出力しない<!--/T--></span><!-- END_MODULE Category_Field --><!-- BEGIN_MODULE Entry_Field --><!-- ELSE_IF [{entry_meta_sitemap}/eq/disabled] --><span class="acms-admin-label acms-admin-label-danger acms-admin-inline-space"><!--T-->sitemap.xmlに表示しない<!--/T--></span><!-- END_MODULE Entry_Field --><!-- END_IF -->
+
+		<!-- BEGIN_MODULE Blog_Field -->
+		<!-- BEGIN_IF [{blog_meta_rss}/eq/disabled] -->
+		<span class="acms-admin-label acms-admin-label-danger acms-admin-inline-space"><!--T-->RSSに出力しない<!--/T--></span><!-- END_MODULE Blog_Field --><!-- BEGIN_MODULE Category_Field --><!-- ELSE_IF [{category_meta_rss}/eq/disabled] --><span class="acms-admin-label acms-admin-label-danger acms-admin-inline-space"><!--T-->RSSに出力しない<!--/T--></span><!-- END_MODULE Category_Field --><!-- BEGIN_MODULE Entry_Field --><!-- ELSE_IF [{entry_meta_rss}/eq/disabled] --><span class="acms-admin-label acms-admin-label-danger acms-admin-inline-space"><!--T-->RSSに出力しない<!--/T--></span><!-- END_MODULE Entry_Field --><!-- END_IF -->
+
+		<!-- BEGIN_MODULE Admin_Indexing -->
+		<!-- BEGIN not_index:entry -->
+		<span class="acms-admin-label acms-admin-label-danger acms-admin-inline-space"><!--T-->このエントリを一覧に表示しない<!--/T--></span><!-- END not_index:entry -->
+		<!-- BEGIN not_index:category -->
+		<span class="acms-admin-label acms-admin-label-danger acms-admin-inline-space"><!--T-->このカテゴリを一覧に表示しない<!--/T--></span><!-- END not_index:category -->
+		<!-- BEGIN not_index:blog -->
+		<span class="acms-admin-label acms-admin-label-danger acms-admin-inline-space"><!--T-->このブログを一覧に表示しない<!--/T--></span><!-- END not_index:blog -->
+		<!-- END_MODULE Admin_Indexing -->
+	</td>
+</tr>

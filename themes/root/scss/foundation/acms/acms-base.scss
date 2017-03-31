@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+@import "variable.scss";
+@import "system-variable.scss";
+@import "mixins.scss";
+
+// ユニット
+@import "unit.scss";
+
+/* ユーティリティ */
+// ユニット内で使用
+.acms-admin-clear {
+	clear: both
+}
+
+/* フォームのバリデーター */
+.transaction-notice-,
+.validator-result-,
+.validator-result-1,
+.v-result-,
+.v-result-1 {
+	display: none;
+}
+/* 問題発生時には表示 */
+.transaction-notice-error,
+.validator-result-error,
+.validator-result-0,
+.v-result-error,
+.v-result-0 {
+	display: block;
+}

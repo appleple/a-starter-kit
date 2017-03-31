@@ -1,0 +1,670 @@
+/* ------------------------------
+ ボタン デフォルト
+------------------------------- */
+.acms-btn {
+	@include btn();
+	@include btn-color(#F9F9F9, #E1E1E1, #F9F9F9 ,#333);
+
+	// hover
+	 &:hover,
+	 &.acms-btn-hover {
+		border: 1px solid #868688;
+		@include btn-color(#F9F9F9, #E1E1E1, #F9F9F9 ,#333);
+		text-decoration: none;
+	}
+
+	// 色
+	 &.acms-btn-active,
+	 &:link ,
+	 &:hover,
+	 &:active,
+	 &:visited {
+		color: $acms-btn-text-default-color;
+	}
+
+	// active
+	 &.acms-btn-active,
+	 &:active {
+		border: 1px solid #AAAAAA;
+		@include btn-color-active();
+		text-decoration: none;
+	}
+
+	// focus
+	 &:focus {
+		outline: none;
+		border-color: #137AF3;
+	}
+
+	// ---------------
+	// primary
+	// ---------------
+	 &.acms-btn-primary {
+		border: $acms-btn-primary-border;
+		@include btn-color($acms-btn-primary-start-color, $acms-btn-primary-end-color,$acms-btn-primary-end-color, $acms-btn-text-color);
+
+		// hover
+		 &:hover,
+		 &.hover{
+			border: $acms-btn-primary-hover-border;
+			@include btn-color($acms-btn-primary-hover-start-color, $acms-btn-primary-hover-end-color,$acms-btn-primary-hover-end-color, $acms-btn-text-color);
+			text-decoration: none;
+		}
+
+		// 色
+		 &:link,
+		 &:hover,
+		 &:active,
+		 &:visited {
+			color: $acms-btn-text-color;
+		}
+
+		// active
+		 &.active,
+		 &:active {
+			border: $acms-btn-primary-active-border;
+			@include btn-color-active($acms-btn-primary-active-bg, $acms-btn-text-color, $acms-btn-primary-active-inset);
+			text-decoration: none;
+		}
+
+		// focus
+		 &:focus {
+			outline: none;
+			border-color: $acms-btn-primary-focus-border-color;
+		}
+	}
+
+	// ---------------
+	// info
+	// ---------------
+	 &.acms-btn-info {
+		border: $acms-btn-info-border;
+		@include btn-color($acms-btn-info-start-color, $acms-btn-info-end-color,$acms-btn-info-end-color, $acms-btn-text-color);
+
+		// hover
+		 &:hover {
+			border: $acms-btn-info-hover-border;
+			@include btn-color($acms-btn-info-hover-start-color, $acms-btn-info-hover-end-color,$acms-btn-info-hover-end-color, $acms-btn-text-color);
+			text-decoration: none;
+		}
+
+		// 色
+		 &:link ,
+		 &:hover,
+		 &:active,
+		 &:visited {
+			color: $acms-btn-text-color;
+		}
+
+		// active
+		 &.active,
+		 &:active {
+			border: $acms-btn-info-active-border;
+			@include btn-color-active($acms-btn-info-active-bg, $acms-btn-text-color, $acms-btn-info-active-inset);
+			text-decoration: none;
+		}
+
+		// focus
+		 &:focus {
+			outline: none;
+			border-color: $acms-btn-info-focus-border-color;
+		}
+	}
+
+	// ---------------
+	// success
+	// ---------------
+	 &.acms-btn-success {
+		border: $acms-btn-success-border;
+		@include btn-color($acms-btn-success-start-color, $acms-btn-success-end-color,$acms-btn-success-end-color, $acms-btn-text-color);
+
+		// hover
+		 &:hover {
+			border: $acms-btn-success-hover-border;
+			@include btn-color($acms-btn-success-hover-start-color, $acms-btn-success-hover-end-color,$acms-btn-success-hover-end-color, $acms-btn-text-color);
+			text-decoration: none;
+		}
+
+		// 色
+		 &:link ,
+		 &:hover,
+		 &:active,
+		 &:visited {
+			color: $acms-btn-text-color;
+		}
+
+		// active
+		 &.active,
+		 &:active {
+			border: $acms-btn-success-active-border;
+			@include btn-color-active($acms-btn-success-active-bg, $acms-btn-text-color, $acms-btn-success-active-inset);
+			text-decoration: none;
+		}
+
+		// focus
+		 &:focus {
+			outline: none;
+			border-color: $acms-btn-success-focus-border-color;
+		}
+	}
+
+	// ---------------
+	// warning
+	// ---------------
+	 &.acms-btn-warning {
+		border: $acms-btn-warning-border;
+		@include btn-color($acms-btn-warning-start-color, $acms-btn-warning-end-color,$acms-btn-warning-end-color, $acms-btn-text-color);
+
+		// hover
+		 &:hover {
+			border: $acms-btn-warning-hover-border;
+			@include btn-color($acms-btn-warning-hover-start-color, $acms-btn-warning-hover-end-color,$acms-btn-warning-hover-end-color, $acms-btn-text-color);
+			text-decoration: none;
+		}
+
+		// 色
+		 &:link ,
+		 &:hover,
+		 &:active,
+		 &:visited {
+			color: $acms-btn-text-color;
+		}
+
+		// active
+		 &.active,
+		 &:active {
+			border: $acms-btn-warning-active-border;
+			@include btn-color-active($acms-btn-warning-active-bg, $acms-btn-text-color, $acms-btn-warning-active-inset);
+			text-decoration: none;
+		}
+
+		// focus
+		 &:focus {
+			outline: none;
+			border-color: $acms-btn-warning-focus-border-color;
+		}
+	}
+
+	// ---------------
+	// danger
+	// ---------------
+	 &.acms-btn-danger {
+		border: $acms-btn-danger-border;
+		@include btn-color($acms-btn-danger-start-color, $acms-btn-danger-end-color, $acms-btn-danger-end-color, $acms-btn-text-color);
+
+		// hover
+		 &:hover {
+			border: $acms-btn-danger-hover-border;
+			@include btn-color($acms-btn-danger-hover-start-color, $acms-btn-danger-hover-end-color, $acms-btn-danger-hover-end-color, $acms-btn-text-color);
+			text-decoration: none;
+		}
+
+		// 色
+		 &:link ,
+		 &:hover,
+		 &:active,
+		 &:visited {
+			color: $acms-btn-text-color;
+		}
+
+		// active
+		 &.active,
+		 &:active {
+			border: $acms-btn-danger-active-border;
+			@include btn-color-active($acms-btn-danger-active-bg, $acms-btn-text-color, $acms-btn-danger-active-inset);
+			text-decoration: none;
+		}
+
+		// focus
+		 &:focus {
+			outline: none;
+			border-color: $acms-btn-danger-focus-border-color;
+		}
+	}
+
+	// ---------------
+	// link
+	// ---------------
+	 &.acms-btn-link,
+	.acms-btn-link:hover,
+	.acms-btn-link:active,
+	.acms-btn-link:visited {
+		border: 0!important;
+		color: $acms-btn-link-color;
+		text-decoration: underline;
+		background: none;
+		border-radius: 0;
+	}
+
+	// hover
+	 &.acms-btn-link:hover {
+		color: $acms-btn-link-color-hover;
+	}
+
+	// active
+	 &.acms-btn-link:active {
+		box-shadow:none;
+	}
+
+}
+
+/* ---------------
+ ボタン フラット
+--------------- */
+.acms-btn-flat {
+	@include acms-btn-flat;
+	@include btn-flat-color;
+	color: $acms-btn-flat-text-default-color;
+
+	 &:hover,
+	a &:hover,
+	 &.acms-btn-hover {
+		box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+		color: $acms-btn-flat-text-default-color;
+		@include btn-flat-color($bg-color:#EEEEEE, $border: 1px solid #A7A7A7);
+		text-decoration: none;
+	}
+
+	 &:visited,
+	a &:visited {
+		color: $acms-btn-flat-text-default-color;
+	}
+
+	 &:active,
+	a &:active,
+	 &.acms-btn-active,
+	 &:focus,
+	a &:focus {
+		@include btn-flat-color-active;
+		color: $acms-btn-flat-text-default-color;
+	}
+}
+
+// primary
+.acms-btn-flat-primary {
+	@include btn-flat-color($acms-btn-flat-primary-color,$acms-btn-flat-primary-border);
+	color: $acms-btn-flat-text-color;
+
+	 &:hover,
+	a &:hover,
+	 &.acms-btn-hover, {
+		box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+		color: $acms-btn-flat-text-color;
+		@include btn-flat-color($acms-btn-flat-primary-hover-color, $acms-btn-flat-primary-hover-border);
+		text-decoration: none;
+	}
+
+	 &:visited,
+	a &:visited {
+		color: $acms-btn-flat-text-color;
+	}
+
+	 &:active,
+	a &:active,
+	 &.acms-btn-active,
+	 &:focus,
+	a &:focus {
+		@include btn-flat-color-active($acms-btn-flat-primary-active-bg, $acms-btn-primary-border);
+		color: $acms-btn-flat-text-color;
+	}
+}
+
+// info
+.acms-btn-flat-info {
+	@include btn-flat-color($acms-btn-flat-info-color,$acms-btn-flat-info-border);
+	color: $acms-btn-flat-text-color;
+
+	 &:hover,
+	a &:hover,
+	 &.acms-btn-hover {
+		box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+		color: $acms-btn-flat-text-color;
+		@include btn-flat-color($acms-btn-flat-info-hover-color, $acms-btn-flat-info-hover-border);
+		text-decoration: none;
+	}
+
+	 &:visited,
+	a &:visited {
+		color: $acms-btn-flat-text-color;
+	}
+
+	 &:active,
+	a &:active,
+	 &.acms-btn-active,
+	 &:focus,
+	a &:focus {
+		@include btn-flat-color-active($acms-btn-flat-info-active-bg, $acms-btn-info-border);
+		color: $acms-btn-flat-text-color;
+	}
+}
+
+// success
+.acms-btn-flat-success {
+	@include btn-flat-color($acms-btn-flat-success-color,$acms-btn-flat-success-border);
+	color: $acms-btn-flat-text-color;
+
+	 &:hover,
+	a &:hover,
+	 &.acms-btn-hover {
+		box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+		color: $acms-btn-flat-text-color;
+		@include btn-flat-color($acms-btn-flat-success-hover-color, $acms-btn-flat-success-hover-border);
+		text-decoration: none;
+	}
+
+	 &:visited,
+	a &:visited {
+		color: $acms-btn-flat-text-color;
+	}
+
+	 &:active,
+	a &:active,
+	 &.acms-btn-active,
+	 &:focus,
+	a &:focus {
+		@include btn-flat-color-active($acms-btn-flat-success-active-bg, $acms-btn-success-border);
+		color: $acms-btn-flat-text-color;
+	}
+}
+
+// warning
+.acms-btn-flat-warning {
+	@include btn-flat-color($acms-btn-flat-warning-color,$acms-btn-flat-warning-border);
+	color: $acms-btn-flat-text-color;
+
+	 &:hover,
+	a &:hover,
+	 &.acms-btn-hover {
+		box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+		color: $acms-btn-flat-text-color;
+		@include btn-flat-color($acms-btn-flat-warning-hover-color, $acms-btn-flat-warning-hover-border);
+		text-decoration: none;
+	}
+
+	 &:visited,
+	a &:visited {
+		color: $acms-btn-flat-text-color;
+	}
+
+	 &:active,
+	a &:active,
+	 &.acms-btn-active,
+	 &:focus,
+	a &:focus {
+		@include btn-flat-color-active($acms-btn-flat-warning-active-bg, $acms-btn-warning-border);
+		color: $acms-btn-flat-text-color;
+	}
+}
+
+// danger
+.acms-btn-flat-danger {
+	@include btn-flat-color($acms-btn-flat-danger-color,$acms-btn-flat-danger-border);
+	color: $acms-btn-flat-text-color;
+
+	 &:hover,
+	a &:hover,
+	 &.acms-btn-hover {
+		box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+		color: $acms-btn-flat-text-color;
+		@include btn-flat-color($acms-btn-flat-danger-hover-color, $acms-btn-flat-danger-hover-border);
+		text-decoration: none;
+	}
+
+	 &:visited,
+	a &:visited {
+		color: $acms-btn-flat-text-color;
+	}
+
+	 &:active,
+	a &:active,
+	 &.acms-btn-active,
+	 &:focus,
+	a &:focus {
+		@include btn-flat-color-active($acms-btn-flat-danger-active-bg, $acms-btn-danger-border);
+		color: $acms-btn-flat-text-color;
+	}
+}
+
+
+/* ---------------
+ 管理画面のボタン
+--------------- */
+.acms-btn-admin,
+.formEntryActionUnit .btn {
+	@include btn();
+	@include btn-color(#F9F9F9, #E1E1E1, #F9F9F9 ,#333);
+	// hover
+	 &:hover,
+	 &.hover{
+		border: 1px solid #868688;
+		@include btn-color(#F9F9F9, #E1E1E1, #F9F9F9 ,#333);
+		text-decoration: none;
+	}
+	// 色
+	 &.active,
+	 &:link ,
+	 &:hover,
+	 &:active,
+	 &:visited {
+		color: $acms-btn-text-default-color;
+	}
+	 &.active,
+	 &:active {
+		border: 1px solid #AAAAAA;
+		@include btn-color-active;
+		text-decoration: none;
+	}
+	 &:focus {
+		outline: none;
+		border-color: #137AF3;
+	}
+}
+
+@-moz-document url-prefix() {
+	a.acms-btn-admin,
+	button.acms-btn-admin{
+		line-height: normal;
+	}
+}
+
+.formEntryActionUnit .btn:hover  {
+	border: 1px solid #868688;
+	@include btn-color();
+	text-decoration: none;
+}
+
+// ---------------
+// 管理画面のボタン primary
+// ---------------
+.acms-btn-admin-primary {
+	border: $acms-btn-primary-border;
+	@include btn-color($acms-btn-primary-start-color, $acms-btn-primary-end-color,$acms-btn-primary-end-color, $acms-btn-text-color);
+
+	// hover
+	 &:hover,
+	 &.hover{
+		border: $acms-btn-primary-hover-border;
+		@include btn-color($acms-btn-primary-hover-start-color, $acms-btn-primary-hover-end-color,$acms-btn-primary-hover-end-color, $acms-btn-text-color);
+		text-decoration: none;
+	}
+
+	// 文字カラー
+	 &:link,
+	 &:hover,
+	 &:active,
+	 &:visited {
+		color: $acms-btn-text-color;
+	}
+
+	// active
+	 &.active,
+	 &:active {
+		border: $acms-btn-primary-active-border;
+		@include btn-color-active($acms-btn-primary-active-bg, $acms-btn-text-color, $acms-btn-primary-active-inset);
+		text-decoration: none;
+	}
+
+	 &:focus {
+		outline: none;
+		border-color: $acms-btn-primary-focus-border-color;
+	}
+}
+
+// ---------------
+// 管理画面のボタン info
+// ---------------
+.acms-btn-admin-info {
+	border: $acms-btn-info-border;
+	@include btn-color($acms-btn-info-start-color, $acms-btn-info-end-color,$acms-btn-info-end-color, $acms-btn-text-color);
+	// hover
+	 &:hover {
+		border: $acms-btn-info-hover-border;
+		@include btn-color($acms-btn-info-hover-start-color, $acms-btn-info-hover-end-color,$acms-btn-info-hover-end-color, $acms-btn-text-color);
+		text-decoration: none;
+	}
+
+	// 文字カラー
+	 &:link,
+	 &:hover,
+	 &:active,
+	 &:visited {
+		color: $acms-btn-text-color;
+	}
+
+	// active
+	 &.active,
+	 &:active {
+		border: $acms-btn-info-active-border;
+		@include btn-color-active($acms-btn-info-active-bg, $acms-btn-text-color, $acms-btn-info-active-inset);
+		text-decoration: none;
+	}
+
+	 &:focus {
+		outline: none;
+		border-color: $acms-btn-info-focus-border-color;
+	}
+}
+
+// ---------------
+// 管理画面のボタン danger
+// ---------------
+.acms-btn-admin-danger {
+	border: $acms-btn-danger-border;
+	@include btn-color($acms-btn-danger-start-color, $acms-btn-danger-end-color,$acms-btn-danger-end-color, $acms-btn-text-color);
+
+	// hover
+	 &:hover {
+		border: $acms-btn-danger-hover-border;
+		@include btn-color($acms-btn-danger-hover-start-color, $acms-btn-danger-hover-end-color,$acms-btn-danger-hover-end-color, $acms-btn-text-color);
+		text-decoration: none;
+	}
+
+	// 文字カラー
+	 &:link ,
+	 &:hover,
+	 &:active,
+	 &:visited {
+		color: $acms-btn-text-color;
+	}
+
+	// active
+	 &.active,
+	 &:active {
+		border: $acms-btn-danger-active-border;
+		@include btn-color-active($acms-btn-danger-active-bg, $acms-btn-text-color, $acms-btn-danger-active-inset);
+		text-decoration: none;
+	}
+
+	 &:focus {
+		outline: none;
+		border-color: $acms-btn-danger-focus-border-color;
+	}
+}
+
+// リンクのとき
+a.acms-btn,
+a.acms-btn-admin,
+a.acms-btn-flat,
+a.acms-btn-aqua{
+	text-decoration: none;
+}
+a.acms-btn,
+a.acms-btn-admin{
+	border: 1px solid #A7A7AA;
+}
+
+.acms-btn-admin.acms-float-right.acms-btn-admin-danger{
+	margin-right: 4px;
+}
+
+// 保存ボタン
+.acms-btn-admin-save {
+	padding-right: 60px!important;
+	padding-left: 60px!important;
+}
+
+
+// ---------------
+// ユーティリティ
+// ---------------
+
+// disabled
+.acms-btn-disabled,
+button[disabled],
+input[type="submit"][disabled],
+input[type="reset"][disabled],
+input[type="image"][disabled],
+input[type="button"][disabled],
+fieldset[disabled] .acms-btn {
+	pointer-events: none;
+	opacity: $acms-btn-disbled-opacity;
+	filter: alpha(opacity=$acms-btn-disbled-opacity-ie);
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+
+@media (min-width : $breakpoint-md-min) {
+	[class*='acms-btn'],
+	.formEntryActionUnit .btn {
+		@include desktop-btn();
+	}
+}
+
+// ブロックレベルのボタン
+.acms-btn-block {
+	display: block;
+	width: 100%;
+	padding-right: 0;
+	padding-left: 0;
+	@include box-sizing(border-box);
+}
+
+// インライン
+.acms-inline-btn {
+	display: inline-block;
+	float: left;
+	margin-right: 5px;
+	margin-bottom: 10px;
+}
+
+// サイズ小
+.acms-btn-small {
+	padding: $acms-btn-small-padding;
+	@include font-size($acms-btn-small-font-size);
+}
+// サイズ大
+.acms-btn-large {
+	padding: $acms-btn-large-padding;
+	@include font-size($acms-btn-large-font-size);
+	border-radius: $acms-btn-large-border-radius;
+}
+
+.acms-btn-unstyled {
+	padding: 0;
+	background: 0;
+	border: 0;
+	 &:focus {
+		outline: 0;
+	}
+}

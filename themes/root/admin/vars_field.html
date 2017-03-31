@@ -1,0 +1,470 @@
+<!--@doc
+ # カスタムフィールドを設定します
+ #
+ # @id field_seo_blog
+ # @author 有限会社アップルップル
+ # @create 2016/04/26
+-->
+<!-- BEGIN_SetTemplate id="field_seo_blog" -->
+<h3 class="acms-admin-admin-title2">SEO</h3>
+<table class="adminTable acms-admin-table-admin-edit">
+	<tr>
+		<th>タイトル - <small>title</small><i data-acms-tooltip="ブログの METAタグ（Title）を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<input type="text" name="blog_meta_title" value="{blog_meta_title}" class="js-countup acms-admin-form-width-medium" data-max="99999" data-label-target=".keyword_countup" /> | %{ROOT_BLOG_NAME}
+			<input type="hidden" name="field[]" value="blog_meta_title" />
+			<input type="hidden" name="blog_meta_title:search" value="0" />
+			<span class="keyword_countup"></span> 文字
+		</td>
+	</tr>
+	<tr>
+		<th>キーワード - <small>keywords</small><i data-acms-tooltip="ブログの METAタグ（Keywords）を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<input type="text" name="blog_meta_keywords" value="{blog_meta_keywords}" class="acms-admin-form-width-large" />
+			<input type="hidden" name="field[]" value="blog_meta_keywords" />
+			<input type="hidden" name="blog_meta_keywords:search" value="0" />
+		</td>
+	</tr>
+	<tr>
+		<th>概要文 - <small>description</small><i data-acms-tooltip="ブログの METAタグ（Description）を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<textarea name="blog_meta_description" rows="5" class="js-countup acms-admin-form-width-full" data-max="99999" data-label-target=".description_countup">{blog_meta_description}</textarea>
+			<input type="hidden" name="field[]" value="blog_meta_description" />
+			<input type="hidden" name="blog_meta_description:search" value="0" />
+			<p class="acms-admin-float-right"><span class="description_countup"></span> 文字</p>
+		</td>
+	</tr>
+	<tr>
+		<th>検索エンジン - <small>noindex</small><i data-acms-tooltip="チェックするとこのブログをインデックスされないようにします。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<label class="acms-admin-form-checkbox">
+				<input type="checkbox" name="blog_meta_robots[]" value="noindex"{blog_meta_robots:checked#noindex} />
+				<i class="acms-admin-ico-checkbox"></i>このコンテンツを検索エンジンに登録しない
+			</label>
+			<input type="hidden" name="field[]" value="blog_meta_robots" />
+		</td>
+	</tr>
+	<tr>
+		<th>サイトマップ - <small>sitemap</small><i data-acms-tooltip="チェックするとこのブログをサイトマップに出力しないようにします。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<label class="acms-admin-form-checkbox">
+				<input type="checkbox" name="blog_meta_sitemap[]" value="disabled"{blog_meta_sitemap:checked#disabled} />
+				<i class="acms-admin-ico-checkbox"></i>このコンテンツをサイトマップ( sitemap.xml )に表示しない
+			</label>
+			<input type="hidden" name="field[]" value="blog_meta_sitemap" />
+		</td>
+	</tr>
+	<tr>
+		<th>RSS - <small>rss</small><i data-acms-tooltip="チェックするとこのブログのエントリーをRSSに出力しないようにします。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<label class="acms-admin-form-checkbox">
+				<input type="checkbox" name="blog_meta_rss[]" value="disabled"{blog_meta_rss:checked#disabled} />
+				<i class="acms-admin-ico-checkbox"></i>このコンテンツをRSS(rss2.xml)に表示しない
+			</label>
+			<input type="hidden" name="field[]" value="blog_meta_rss" />
+		</td>
+	</tr>
+</table>
+<!-- END_SetTemplate -->
+<!--@doc
+ # カスタムフィールドを設定します
+ #
+ # @id field_seo_category
+ # @author 有限会社アップルップル
+ # @create 2016/04/26
+-->
+<!-- BEGIN_SetTemplate id="field_seo_category" -->
+<table class="adminTable acms-admin-table-admin-edit">
+	<tr>
+		<th>タイトル - <small>title</small><i data-acms-tooltip="カテゴリーの METAタグ（Title）を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<input type="text" name="category_meta_title" value="{category_meta_title}" class="js-countup acms-admin-form-width-medium" data-max="9999" data-label-target=".keyword_countup" /> | %{ROOT_BLOG_NAME}
+			<input type="hidden" name="field[]" value="category_meta_title" />
+			<input type="hidden" name="category_meta_title:search" value="0" />
+			<span class="keyword_countup"></span> 文字
+		</td>
+	</tr>
+	<tr>
+		<th>キーワード - <small>keywords</small><i data-acms-tooltip="カテゴリーの METAタグ（Keywords）を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<input type="text" name="category_meta_keywords" value="{category_meta_keywords}" class="acms-admin-form-width-full" />
+			<input type="hidden" name="field[]" value="category_meta_keywords" />
+			<input type="hidden" name="category_meta_keywords:search" value="0" />
+		</td>
+	</tr>
+	<tr>
+		<th>概要文 - <small>description</small><i data-acms-tooltip="カテゴリーの METAタグ（Description）を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<textarea name="category_meta_description" rows="5" class="js-countup acms-admin-form-width-full" data-max="9999" data-label-target=".description_countup">{category_meta_description}</textarea>
+			<input type="hidden" name="field[]" value="category_meta_description" />
+			<input type="hidden" name="category_meta_description:search" value="0" />
+			<p class="acms-admin-float-right"><span class="description_countup"></span> 文字</p>
+		</td>
+	</tr>
+	<tr>
+		<th>検索エンジン - <small>noindex</small><i data-acms-tooltip="チェックするとこのカテゴリーをインデックスされないようにします。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<label class="acms-admin-form-checkbox">
+				<input type="checkbox" name="category_meta_robots[]" value="noindex"{category_meta_robots:checked#noindex} />
+				<i class="acms-admin-ico-checkbox"></i>検索エンジンに表示しない
+			</label>
+			<input type="hidden" name="field[]" value="category_meta_robots" />
+		</td>
+	</tr>
+	<tr>
+		<th>サイトマップ - <small>sitemap</small><i data-acms-tooltip="チェックするとこのカテゴリーをサイトマップに出力しないようにします。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<label class="acms-admin-form-checkbox">
+				<input type="checkbox" name="category_meta_sitemap[]" value="disabled"{category_meta_sitemap:checked#disabled} />
+				<i class="acms-admin-ico-checkbox"></i>サイトマップに表示しない
+			</label>
+			<input type="hidden" name="field[]" value="category_meta_sitemap" />
+		</td>
+	</tr>
+	<tr>
+		<th>RSS - <small>rss</small><i data-acms-tooltip="チェックするとこのカテゴリーのエントリーをRSSに出力しないようにします。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<label class="acms-admin-form-checkbox">
+				<input type="checkbox" name="category_meta_rss[]" value="disabled"{category_meta_rss:checked#disabled} />
+				<i class="acms-admin-ico-checkbox"></i>RSSに表示しない
+			</label>
+			<input type="hidden" name="field[]" value="category_meta_rss" />
+		</td>
+	</tr>
+</table>
+<!-- END_SetTemplate -->
+
+<!--@doc
+ # カスタムフィールドを設定します
+ #
+ # @id field_seo_entry
+ # @author 有限会社アップルップル
+ # @create 2016/04/26
+-->
+<!-- BEGIN_SetTemplate id="field_seo_entry" -->
+<div class="acms-admin-accordion">
+	<h3 class="acms-admin-accordion-title"><a href="#fadeSeoInfo" class="js-fader acms-admin-accordion-title-link">SEO設定<span class="acms-admin-icon-arrow-small-down"></span></a></h3>
+	<div id="fadeSeoInfo" class="acms-admin-accordion-inner">
+		<table class="entryFormTable acms-admin-table-entry">
+			<tr>
+				<th>タイトル - <small>title</small><i data-acms-tooltip="エントリーの titleタグを設定します。" class="acms-admin-icon-tooltip acms-admin-inline-space-left js-acms-tooltip"></i>
+					<div>
+						<span class="acms-admin-label"><span class="keyword_countup"></span> 文字</span>
+					</div>
+				</th>
+				<td>
+					<input type="text" name="entry_meta_title" value="{entry_meta_title}" class="js-countup acms-admin-form-width-medium" data-max="9999" data-label-target=".keyword_countup" /> | %{ROOT_BLOG_NAME}
+					<input type="hidden" name="field[]" value="entry_meta_title" />
+					<input type="hidden" name="entry_meta_title:search" value="0" />
+				</td>
+			</tr>
+			<tr>
+				<th>キーワード - <small>keywords</small><i data-acms-tooltip="エントリーの METAタグ（Keywords）を設定します。" class="acms-admin-icon-tooltip acms-admin-inline-space-left js-acms-tooltip"></i></th>
+				<td>
+					<input type="text" name="entry_meta_keywords" value="{entry_meta_keywords}" class="acms-admin-form-width-full" />
+					<input type="hidden" name="field[]" value="entry_meta_keywords" />
+					<input type="hidden" name="entry_meta_keywords:search" value="0" />
+				</td>
+			</tr>
+			<tr>
+				<th>概要文 - <small>description</small><i data-acms-tooltip="エントリーの METAタグ（Description）を設定します。" class="acms-admin-icon-tooltip acms-admin-inline-space-left js-acms-tooltip"></i>
+					<div>
+						<span class="acms-admin-label"><span class="description_countup"></span> 文字</span>
+					</div>
+				</th>
+				<td>
+					<textarea name="entry_meta_description" rows="5" class="js-countup acms-admin-form-width-full" data-max="9999" data-label-target=".description_countup">{entry_meta_description}</textarea>
+					<input type="hidden" name="field[]" value="entry_meta_description" />
+					<input type="hidden" name="entry_meta_description:search" value="0" />
+				</td>
+			</tr>
+			<tr>
+				<th>検索エンジン - <small>noindex</small><i data-acms-tooltip="チェックするとこのエントリーをインデックスされないようにします。" class="acms-admin-icon-tooltip acms-admin-inline-space-left js-acms-tooltip"></i></th>
+				<td>
+					<label class="acms-admin-form-checkbox">
+						<input type="checkbox" name="entry_meta_robots[]" value="noindex"{entry_meta_robots:checked#noindex} />
+						<i class="acms-admin-ico-checkbox"></i>検索エンジンに表示しない
+					</label>
+					<input type="hidden" name="field[]" value="entry_meta_robots" />
+				</td>
+			</tr>
+			<tr>
+				<th>サイトマップ - <small>sitemap</small><i data-acms-tooltip="チェックするとこのエントリーをサイトマップに出力しないようにします。" class="acms-admin-icon-tooltip acms-admin-inline-space-left js-acms-tooltip"></i></th>
+				<td>
+					<label class="acms-admin-form-checkbox">
+						<input type="checkbox" name="entry_meta_sitemap[]" value="disabled"{entry_meta_sitemap:checked#disabled} />
+						<i class="acms-admin-ico-checkbox"></i>サイトマップに表示しない
+					</label>
+					<input type="hidden" name="field[]" value="entry_meta_sitemap" />
+				</td>
+			</tr>
+			<tr>
+				<th>RSS - <small>rss</small><i data-acms-tooltip="チェックするとこのエントリーをRSSに出力しないようにします。" class="acms-admin-icon-tooltip acms-admin-inline-space-left js-acms-tooltip"></i></th>
+				<td>
+					<label class="acms-admin-form-checkbox">
+						<input type="checkbox" name="entry_meta_rss[]" value="disabled"{entry_meta_rss:checked#disabled} />
+						<i class="acms-admin-ico-checkbox"></i>RSSに表示しない
+					</label>
+					<input type="hidden" name="field[]" value="entry_meta_rss" />
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<!-- END_SetTemplate -->
+
+<!--@doc
+ # カスタムフィールドを設定します
+ #
+ # @id field_ogp
+ # @param fb_admin | 解析用タグのフィールドを表示します（true|false）
+ # @param image | OGP画像のフィールドを表示します（true|false）
+ # @author 有限会社アップルップル
+ # @create 2016/04/26
+-->
+<!-- BEGIN_SetTemplate id="field_ogp" fb_admin="false" image="true" -->
+<table class="adminTable acms-admin-table-admin-edit"><!-- BEGIN_IF [{{fb_admin}}/eq/true] --><!-- BEGIN_IF [%{BID}/eq/1] -->
+	<tr>
+		<th>Facebook admins<i data-acms-tooltip="FacebookのIDを設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<input type="text" name="fb_admins" value="{fb_admins}" size="20" />
+			<input type="hidden" name="field[]" value="fb_admins" />
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{image}}/eq/true] -->
+	<tr>
+		<th>OGP画像<i data-acms-tooltip="Facebook等で利用するOGP画像を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<!-- BEGIN ogp_image@path:veil -->
+			<img src="%{ARCHIVES_DIR}{ogp_image@path}" style="max-width:100%;" />
+			<input type="hidden" name="ogp_image@old" value="{ogp_image@path}" /><br />
+			<label>
+				<input type="checkbox" name="ogp_image@edit" value="delete" />削除
+			</label>
+			<!-- END ogp_image@path:veil -->
+			<input type="file" name="ogp_image" size="20" />
+			<input type="hidden" name="field[]" value="ogp_image" />
+			<input type="hidden" name="ogp_image:extension" value="image" />
+			<input type="hidden" name="ogp_image@size" value="1200" />
+		</td>
+	</tr><!-- END_IF -->
+</table>
+<!-- END_SetTemplate -->
+
+<!--@doc
+ # カスタムフィールドを設定します
+ #
+ # @id field_index_base
+ # @param bg_image | 背景画像のフィールドを表示します（true|false）
+ # @param description |説明文のフィールドを表示します（true|false）
+ # @author 有限会社アップルップル
+ # @create 2016/04/26
+-->
+<!-- BEGIN_SetTemplate id="field_index_base" bg_image="true" description="true" -->
+<h3 class="acms-admin-admin-title2">ページタイトル設定</h3>
+<table class="adminTable acms-admin-table-admin-edit"><!-- BEGIN_IF [{{bg_image}}/eq/true] -->
+	<tr>
+		<th>背景画像<i data-acms-tooltip="カテゴリーの 背景画像を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<!-- BEGIN page_image@path:veil -->
+			<img src="%{ARCHIVES_DIR}{page_image@path}" width="600" class="acms-admin-img-responsive"><br>
+			<input type="hidden" name="page_image@old" value="{page_image@path}">
+			<label>
+				<input type="checkbox" name="page_image@edit" value="delete">削除
+			</label>
+			<!-- END page_image@path:veil -->
+			<input type="file" name="page_image" size="20">
+			<input type="hidden" name="field[]" value="page_image">
+			<input type="hidden" name="page_image:extension" value="image">
+			<input type="hidden" name="page_image@size" value="1400">
+			<input type="hidden" name="page_image@filename" value="">
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{description}}/eq/true] -->
+	<tr>
+		<th>説明文<i data-acms-tooltip="カテゴリーの 説明文を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<textarea name="page_description" rows="5" style="width:80%;">{page_description}</textarea>
+			<input type="hidden" name="field[]" value="page_description" />
+		</td>
+	</tr><!-- END_IF -->
+</table>
+<!-- END_SetTemplate -->
+
+<!--@doc
+ # カスタムフィールドを設定します
+ #
+ # @id field_sns
+ # @param facebook | Facebookのアカウントがあるかないか指定します（true|false）
+ # @param twitter | Twitterのアカウントがあるかないか指定します（true|false）
+ # @param google_plus | Google+のアカウントがあるかないか指定します（true|false）
+ # @param youtube | YouTubeのアカウントがあるかないか指定します（true|false）
+ # @author 有限会社アップルップル
+ # @create 2016/04/26
+-->
+<!-- BEGIN_SetTemplate id="field_sns" facebook="true" twitter="true" google_plus="true" youtube="true" -->
+<h3 class="acms-admin-admin-title2">SNSアカウントの情報</h3>
+<table class="adminTable acms-admin-table-admin-edit"><!-- BEGIN_IF [{{facebook}}/eq/true] -->
+	<tr>
+		<th>Facebook</th>
+		<td>
+			<input type="text" name="facebook_account" value="{facebook_account}" placeholder="例）ablogcms" class="acms-admin-form-width-medium">
+			<input type="hidden" name="field[]" value="facebook_account">
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{twitter}}/eq/true] -->
+	<tr>
+		<th>Twitter</th>
+		<td>
+			<input type="text" name="twitter_account" value="{twitter_account}" placeholder="例）ablogcms" class="acms-admin-form-width-medium">
+			<input type="hidden" name="field[]" value="twitter_account">
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{google_plus}}/eq/true] -->
+	<tr>
+		<th>Google+</th>
+		<td>
+			<input type="text" name="gplus_account" value="{gplus_account}" placeholder="例）100557566142160949993/about" class="acms-admin-form-width-medium">
+			<input type="hidden" name="field[]" value="gplus_account">
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{youtube}}/eq/true] -->
+	<tr>
+		<th>YouTube</th>
+		<td>
+			<input type="text" name="youtube_account" value="{youtube_account}" placeholder="例）ablogcms" class="acms-admin-form-width-medium">
+			<input type="hidden" name="field[]" value="youtube_account">
+		</td>
+	</tr><!-- END_IF -->
+</table>
+<!-- END_SetTemplate -->
+
+<!--@doc
+ # カスタムフィールドを設定します
+ #
+ # @id field_analytics
+ # @param tag | 解析用タグのフィールドを表示します（true|false）
+ # @param view_id |View IDのフィールドを表示します（true|false）
+ # @param client_id | APIのClientIDのフィールドを表示します（true|false）
+ # @author 有限会社アップルップル
+ # @create 2016/04/26
+-->
+<!-- BEGIN_SetTemplate id="field_analytics" tag="true" view_id="true" client_id="true" -->
+<h3 class="acms-admin-admin-title2">アクセス解析</h3>
+<table class="adminTable acms-admin-table-admin-edit"><!-- BEGIN_IF [{{tag}}/eq/true] -->
+	<tr>
+		<th>Google Analytics<i data-acms-tooltip="Google Analytics の解析用のタグを設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<textarea name="google_analytics" cols="60" rows="5">{google_analytics}</textarea>
+			<input type="hidden" name="field[]" value="google_analytics" />
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{view_id}}/eq/true] -->
+	<tr>
+		<th>Google Analytics View ID<i data-acms-tooltip="ダッシュボードにGAのグラフを出すための設定です。ビューのIDを設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<input type="text" name="ga_api_view_id" value="{ga_api_view_id}" placeholder="00000000" />
+			<input type="hidden" name="field[]" value="ga_api_view_id" />
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{client_id}}/eq/true] -->
+	<tr>
+		<th>Google Analytics API ClientID<i data-acms-tooltip="<a href='https://console.developers.google.com' target='_blank'>Google Analytics API</a> のClient IDを設定します" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<input type="text" name="ga_api_client_id" value="{ga_api_client_id}" placeholder="xxxxxxxxx.apps.googleusercontent.com" class="acms-admin-form-width-large" />
+			<input type="hidden" name="field[]" value="ga_api_client_id" />
+		</td>
+	</tr><!-- END_IF -->
+</table>
+<!-- END_SetTemplate -->
+
+<!--@doc
+ # カスタムフィールドを設定します
+ #
+ # @id field_organization
+ # @param name | 組織名のフィールドを表示します（true|false）
+ # @param zip |郵便番号のフィールドを表示します（true|false）
+ # @param address | 住所のフィールドを表示します（true|false）
+ # @param tel |電話番号のフィールドを表示します（true|false）
+ # @param tel_time |電話受付時間のフィールドを表示します（true|false）
+ # @param fax |FAXのフィールドを表示します（true|false）
+ # @author 有限会社アップルップル
+ # @create 2016/04/26
+-->
+<!-- BEGIN_SetTemplate id="field_organization" name="true" zip="true" address="true" tel="true" tel_time="true" fax="true" -->
+<h3 class="acms-admin-admin-title2">会社情報</h3>
+<table class="adminTable acms-admin-table-admin-edit"><!-- BEGIN_IF [{{name}}/eq/true] -->
+	<tr>
+		<th>会社名<i data-acms-tooltip="会社名を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<input type="text" name="company_name" value="{company_name}" class="acms-admin-form-width-large" />
+			<input type="hidden" name="field[]" value="company_name" />
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{zip}}/eq/true] -->
+	<tr>
+		<th>郵便番号<i data-acms-tooltip="郵便番号を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<input type="text" name="zip" value="{zip}" size="10" />
+			<input type="hidden" name="field[]" value="zip" />
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{address}}/eq/true] -->
+	<tr>
+		<th>住所<i data-acms-tooltip="住所を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<input type="text" name="address" value="{address}" class="acms-admin-form-width-large" />
+			<input type="hidden" name="field[]" value="address" />
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{tel}}/eq/true] -->
+	<tr>
+		<th>電話番号<i data-acms-tooltip="電話番号を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<input type="text" name="tel" value="{tel}" class="acms-admin-form-width-large" />
+			<input type="hidden" name="field[]" value="tel" />
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{tel_time}}/eq/true] -->
+	<tr>
+		<th>電話の受付時間<i data-acms-tooltip="電話の受付時間を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<input type="text" name="tel_time" value="{tel_time}" class="acms-admin-form-width-large" />
+			<input type="hidden" name="field[]" value="tel_time" />
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{fax}}/eq/true] -->
+	<tr>
+		<th>FAX番号<i data-acms-tooltip="FAX番号を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip"></i></th>
+		<td>
+			<input type="text" name="fax" value="{fax}" class="acms-admin-form-width-large" />
+			<input type="hidden" name="field[]" value="fax" />
+		</td>
+	</tr><!-- END_IF -->
+</table>
+<!-- END_SetTemplate -->
+
+<!--@doc
+ # カスタムフィールドを設定します
+ #
+ # @id field_module_header
+ # @param heading | 見出しの入力欄があるかなしか設定します（true|false）
+ # @param description | 説明文の入力欄があるかなしか設定します（true|false）
+ # @author 有限会社アップルップル
+ # @create 2016/04/26
+-->
+<!-- BEGIN_SetTemplate id="field_module_header" heading="true" description="true" -->
+<h3 class="acms-admin-admin-title2">モジュールの設定</h3>
+<table class="adminTable acms-admin-table-admin-edit"><!-- BEGIN_IF [{{heading}}/eq/true] -->
+	<tr>
+		<th>見出し</th>
+		<td>
+			<input type="text" name="module_heading" value="{module_heading}" class="acms-admin-form-width-3quarters">
+			<input type="hidden" name="field[]" value="module_heading">
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{heading-textarea}}/eq/true] -->
+	<tr>
+		<th>説明文</th>
+		<td>
+			<textarea name="module_heading" rows="2" class="acms-admin-form-width-3quarters">{module_heading}</textarea>
+			<input type="hidden" name="field[]" value="module_heading" />
+		</td>
+	</tr><!-- END_IF --><!-- BEGIN_IF [{{description}}/eq/true] -->
+	<tr>
+		<th>説明文</th>
+		<td>
+			<textarea name="module_detail" rows="3" class="acms-admin-form-width-3quarters">{module_detail}</textarea>
+			<input type="hidden" name="field[]" value="module_detail" />
+		</td>
+	</tr><!-- END_IF -->
+</table>
+<!-- END_SetTemplate -->

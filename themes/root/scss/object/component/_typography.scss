@@ -1,0 +1,20 @@
+/* ------------------------------
+　　タイポグラフィ
+------------------------------ */
+
+/*  見出し
+------------------------------ */
+.c-heading-large {
+  @include heading-large(false,false);
+}
+.c-heading-medium {
+  @include heading-medium(false,false);
+}
+
+// 装飾付き
+.c-heading-large-decoration {
+  @include heading-large(false,true);
+}
+.c-heading-medium-decoration {
+  @include heading-medium(false,true);
+}

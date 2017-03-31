@@ -1,0 +1,71 @@
+/* ------------------------------
+　　ベース
+------------------------------ */
+html {
+  height: 100%;
+}
+
+body {
+  background: url('#{$root-theme-img}common/bg.jpg');
+
+  color: #333;
+  font-family: $font-base;
+  @include font-size(16);
+}
+
+/* リンクの設定 */
+a {
+  border: none;
+  color: #006dd9;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #7f5ad7;
+  text-decoration: none;
+}
+
+a:active {
+  color: #006dd9;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #006dd9;
+  text-decoration: underline;
+}
+
+/* コンテナー */
+.acms-container {
+  max-width: $container;
+  .acms-container {
+    padding: 0;
+  }
+}
+
+.c-narrow-container {
+  margin: 0 auto;
+  max-width: $narrow-container;
+  padding-left: $grid-space;
+  padding-right: $grid-space;
+}
+
+.c-narrow-container-md {
+  margin: 0 auto;
+  max-width: $narrow-container-md;
+  padding-left: $grid-space;
+  padding-right: $grid-space;
+}
+
+@media (max-width: $container) {
+  .sp-container {
+    .sp-container {
+      padding: 0;
+    }
+    .acms-container {
+      .sp-container {
+        padding: 0;
+      }
+    }
+  }
+}

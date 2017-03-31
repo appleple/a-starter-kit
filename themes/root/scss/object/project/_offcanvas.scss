@@ -1,0 +1,116 @@
+/* ------------------------------
+　　オフキャンバス
+------------------------------ */
+// コンテンツへ戻るボタン
+.close-btn {
+  display: block;
+  width: 2.625em;
+  height: 2.25em;
+  padding: 0;
+  border: 0;
+  outline: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
+  @include opacity(1);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#offcanvas:target .close-btn {
+  display: block;
+}
+
+#offcanvas .close-btn {
+  position: absolute;
+  top: -3.75em;
+  left: 1.875em;
+}
+
+.js-acms-offcanvas-open #offcanvas .close-btn {
+  display: block;
+  @include opacity(.7);
+}
+
+@media (max-width: $breakpoint-lg-max) {
+  #nav {
+    padding: 0 0  100px 0;
+    @include box-sizing(border-box);
+  }
+
+  .p-offcanvas-nav-title {
+    margin: 0;
+    height: 60px;
+    padding: 15px;
+    line-height: 2;
+    @include font-size(18);
+    background: $base-color;
+    box-sizing: border-box;
+  }
+
+  /* グローバルナビゲーション */
+  .p-offcanvas-nav {
+    margin: 0 0 15px 0;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      position: relative;
+      display: block;
+      padding: 15px;
+      @include font-size(18);
+      &.navbarBtn {
+        border: 0;
+      }
+      &.stay {
+        a {
+          background: #F1EFEE;
+        }
+        .no-js a & {
+          background: #F1EFEE;
+        }
+      }
+      &:first-child {
+        border: 0;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 1px;
+        @include dotted($position: bottom,$color:$secondary-color, $stripe: 1, $spacing: 5, $width:1)
+      }
+      ul {
+        display: none;
+      }
+    }
+    a {
+      display: block;
+      margin: -15px;
+      padding: 15px;
+      color: #333;
+      &:hover {
+        text-decoration: none;
+      }
+      .no-js & {
+        color: #333;
+      }
+    }
+  }
+
+  /* オフキャンバス内のパーツ */
+  .p-offcanvas-bar {
+    display: none;
+    padding: 0 0 100px 0;
+
+    .js-acms-offcanvas-active & {
+      background: #FFF;
+    }
+
+    // ここにコンポーネントのクラス名を書いて上書きします
+  }
+
+}

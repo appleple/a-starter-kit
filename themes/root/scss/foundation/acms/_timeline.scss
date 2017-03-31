@@ -1,0 +1,64 @@
+/* ------------------------------  
+ タイムライン
+------------------------------- */
+.acms-timeline {
+	list-style: none;
+	position: relative;
+	padding-left: 20px;
+
+	 &:before {
+		content: "";
+		position: absolute;
+		width: $timeline-line-width;
+		height: 100%;
+		background: $timeline-line-color;
+	}
+}
+
+.acms-timeline-mark {
+	position: absolute;
+	left: -55px;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);
+}
+
+.acms-timeline-side {
+	position: relative;
+		left: -15px;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);
+}
+.acms-timeline-label {
+	padding: 5px 10px;
+	@include font-size($timeline-label-font-size);
+}
+.acms-timeline-status-label {
+	float: left;
+	margin-right: 10px;
+	line-height: 1.2;
+}
+
+.acms-timeline-item-group {
+	list-style: none;
+	margin-top: $timeline-itemgroup-margin-top;
+}
+.acms-timeline-item {
+	position: relative;
+}
+
+.acms-timeline-panel {
+	margin: $timeline-panel-margin;
+	padding: $timeline-panel-padding;
+	border: $timeline-panel-border;
+
+	[class*='acms-icon'] {
+		font-size:inherit;
+	}
+}
+.acms-timeline-time {
+	float: right;
+	color: #AAA;
+}
+
+//acms-panelと組み合わせているとき
+.acms-panel.acms-timeline-panel {
+	padding: 0;
+}

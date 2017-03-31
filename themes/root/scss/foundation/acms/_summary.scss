@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+@import "variable.scss";
+@import "mixins.scss";
+@import "system-variable.scss";
+
+/* ------------------------------
+ リスト
+------------------------------- */
+.acms-summary {
+	display: table;
+	width: 100%;
+	 & + .acms-summary {
+		margin-top: 10px;
+	}
+}
+.acms-summary-image {
+	display: table-cell;
+	width: 1%;
+	white-space: nowrap;
+	vertical-align: top;
+	+ .acms-summary-body {
+		padding-left: 10px;
+	}
+	.acms-summary-body + {
+		padding-right: 10px;
+	}
+}
+.acms-summary-body {
+	display: table-cell;
+	width: 100%;
+	vertical-align: top;
+}
+.acms-summary-heading {
+	margin: 0 0 10px 0;
+}

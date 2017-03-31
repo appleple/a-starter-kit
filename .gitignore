@@ -1,0 +1,13 @@
+/config.server.php
+php.ini
+/license.php
+.htaccess
+/archives
+/archives_rev
+/media
+/node_modules
+.DS_Store
+acms.php
+/setup_
+/.idea
+/cache

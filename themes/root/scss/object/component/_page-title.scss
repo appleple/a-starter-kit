@@ -1,0 +1,30 @@
+/* ------------------------------
+　　ページタイトル
+------------------------------ */
+
+/* 　ページタイトル（背景画像つき）
+------------------------------ */
+.c-pagetitle {
+  position: relative;
+  background: url('#{$root-theme-img}common/bg_title.jpg') no-repeat;
+  background-size: cover;
+}
+
+.c-pagetitle-inner {
+  padding: 35px 0;
+}
+
+.c-pagetitle-heading {
+  margin: 0;
+  color: #fff;
+  font-family: $font-heading;
+  @include font-size(22);
+  line-height: 1.3;
+  text-align: center;
+}
+@media screen and (min-width: $breakpoint-md-min) {
+  .c-pagetitle-heading {
+    @include font-size(28);
+    text-align: left;
+  }
+}

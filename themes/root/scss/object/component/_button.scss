@@ -1,0 +1,29 @@
+/* ------------------------------
+　　ボタン
+------------------------------ */
+/* 　ボタン
+------------------------------ */
+.c-btn {
+  display: block;
+  padding: 10px 30px;
+  color: $secondary-color;
+  line-height: 1.2;
+  @include font-size(16);
+  text-align: center;
+  border: 1px solid $secondary-color;
+  background: #fff;
+  overflow: hidden;
+  transition: background-color .3s;
+
+  &:hover,
+  &:visited,
+  &:active,
+  &:focus {
+    color: $secondary-color;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background: #EEE;
+  }
+}

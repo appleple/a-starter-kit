@@ -1,0 +1,295 @@
+/* ------------------------------
+　　フォーム
+------------------------------ */
+
+/* ステップ
+------------------------------ */
+// フォームステップ
+.c-form-step {
+  display: table;
+  list-style: none;
+  width: 100%;
+  margin: 10px 0;
+  padding: 0 $grid-space;
+  box-sizing: border-box;
+}
+.c-form-step-item {
+  position: relative;
+  display: table-cell;
+  width: 33.33333%;
+  height: $form-step-height;
+  margin: 0 0 2px 0;
+  padding: 0 0 0 ($form-step-arrow-width + $form-step-item-padding);
+  @include font-size(12);
+  color: $form-step-base-text-color;
+  vertical-align: middle;
+  background: $form-step-base-bg-color;
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: ((-$form-step-height/2) - $form-step-border-width);
+    border-style: solid;
+    border-color: transparent;
+    border-left-color: $form-step-border-color;
+  }
+
+  &:before {
+    margin-top: ((-$form-step-height/2) - $form-step-border-width);
+    border-width: (($form-step-height/2) + $form-step-border-width) 0 (($form-step-height/2) + $form-step-border-width) ($form-step-arrow-width + $form-step-border-width);
+    border-left-color: #FFF;
+  }
+
+  &:after {
+    margin-top: (-$form-step-height/2);
+    border-width: ($form-step-height/2) 0 ($form-step-height/2) $form-step-arrow-width;
+    border-left-color: $form-step-base-bg-color;
+  }
+}
+
+.c-form-step-item:first-child {
+  padding: 0 0 0 $form-step-item-padding;
+
+  &:before,
+  &:after {
+    display: none;
+  }
+}
+
+.c-form-step-item.-active {
+  color: $form-step-active-text-color;
+  background: $form-step-active-bg-color;
+
+  & + .c-form-step-item:after {
+    border-left-color: $form-step-active-bg-color;
+  }
+}
+
+.c-form-step-num {
+  margin: 0 10px 0 0;
+  @include font-size(18);
+  vertical-align: middle;
+}
+
+.c-form-step-inner {
+  vertical-align: middle;
+}
+
+@media screen and (min-width: $breakpoint-sm-min){
+  // フォームステップ
+  .c-form-step {
+    margin: 30px 0;
+  }
+
+  .c-form-step-item {
+    margin: 0;
+    padding: 0 0 0 ($form-step-arrow-width + $form-step-item-padding-desktop);
+    @include font-size(16);
+
+    &:first-child {
+      padding: 0 0 0 $form-step-item-padding-desktop;
+    }
+  }
+
+  .c-form-step-num {
+    margin: 0 20px 0 0;
+    @include font-size(24);
+  }
+}
+
+
+/* フォーム要素
+------------------------------ */
+.c-form {
+  input[type=date],
+  input[type=datetime-local],
+  input[type=datetime],
+  input[type=email],
+  input[type=month],
+  input[type=number],
+  input[type=password],
+  input[type=search],
+  input[type=tel],
+  input[type=text],
+  input[type=time],
+  input[type=url],
+  input[type=week],
+  textarea {
+    padding: 7px 10px;
+    @include font-size(16);
+  }
+
+  select {
+    padding: 7px 30px 7px 10px;
+    @include font-size(14);
+  }
+
+  select {
+    &[required]:required {
+      border: 1px solid #c49511;
+    }
+    &.focused:invalid {
+      border: 1px solid #c41134;
+    }
+    &[required]:valid {
+      border: 1px solid #a7a7aa;
+    }
+  }
+
+  input,
+  textarea {
+    &[required]:required {
+      background: #fffdeb;
+    }
+    &.focused:invalid {
+      background: #ffebee;
+    }
+    &[required]:valid {
+      background: #fff;
+    }
+  }
+}
+
+
+/* バリデーター
+------------------------------ */
+.c-error-text {
+  position: relative;
+  display: inline-block;
+  margin: 15px 0 0;
+  padding: 10px 20px;
+  background: #A1414D;
+  color: #FFF;
+  &:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    border-style: solid;
+    border-width: 0 8px 10px 7px;
+    border-color: transparent;
+    border-bottom-color: #A1414D;
+  }
+}
+
+.validator-result {
+  opacity: 0;
+  transform: translate(0,-10px);
+  //transition: opacity .3s ease 1s;
+}
+.validator-result-0 {
+  animation: fade-in-down .5s ease .3s ;
+  animation-fill-mode: forwards;
+}
+
+/* ラベル
+------------------------------ */
+.c-label-required {
+  margin: 0 5px;
+  padding: 2px 5px;
+  color: #fff;
+  @include font-size(12);
+  line-height: 1.2;
+  border-radius: 5px;
+  background: #A1414D;
+}
+
+
+/* メッセージ
+------------------------------ */
+.c-form-message {
+  margin: 0 0 15px 0;
+}
+
+
+/* 送信ボタン
+------------------------------ */
+.c-form-btn-box {
+  margin: 0 $grid-space 50px $grid-space;
+  text-align: center;
+}
+.c-form-btn {
+  display: inline-block;
+}
+.c-form-btn-return {
+  float: left;
+}
+.c-form-btn-send {
+  float: right;
+}
+@media screen and (min-width: $breakpoint-md-min) {
+  .c-form-btn-return {
+    float: none;
+    display: inline-block;
+    padding: 0 15px;
+    max-width: 150px;
+    width: 100%;
+
+    .c-form-btn {
+      width: 100%;
+      color: $secondary-color;
+      background: #FFF;
+      border-color: $secondary-color;
+      &:hover {
+        color: $secondary-color;
+        background: #EEE;
+      }
+    }
+  }
+  .c-form-btn-send {
+    float: none;
+    display: inline-block;
+    max-width: 300px;
+    width: 100%;
+    padding: 0 15px;
+
+    .c-form-btn {
+      width: 100%;
+    }
+  }
+}
+
+.c-form-btn {
+  display: block;
+  height: 46px;
+  padding: 3px 20px;
+  color: #fff;
+  @include font-size(20);
+  line-height: 1.2;
+  border: 2px solid $secondary-color;
+  border-radius: 5px;
+  background: $secondary-color;
+  transition: background .2s;
+  box-sizing: border-box;
+  &:link,
+  &:visited,
+  &:active,
+  &:focus {
+    color: #FFF;
+    text-decoration: none;
+  }
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+    background: #111;
+  }
+  .fa {
+    margin-right: 5px;
+  }
+}
+
+.c-form-btn-block-wrap {
+  margin: 0 20px;
+  text-align: center;
+}
+
+.c-form-btn-block {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}

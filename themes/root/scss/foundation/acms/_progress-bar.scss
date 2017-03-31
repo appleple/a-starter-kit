@@ -1,0 +1,61 @@
+/* ------------------------------
+ プログレスバー
+------------------------------- */
+// 全体
+.acms-progress {
+	height: $acms-progress-height;
+	background: $acms-progress-bg;
+	border: $acms-progress-border;
+	border-radius: $acms-progress-border-radius;
+}
+
+// バー
+.acms-progress-bar {
+	float: left;
+	height: 100%;
+	background-color: $acms-progress-bar-color;
+	color: $acms-progress-bar-text;
+	text-align: center;
+	@include transition(width 0.6s ease);
+}
+
+// info
+.acms-progress-bar-info {
+	background-color: $acms-progress-bar-color-info;
+}
+
+// danger
+.acms-progress-bar-danger {
+	background-color: $acms-progress-bar-color-danger;
+
+}
+
+// striped
+.acms-progress-striped .acms-progress-bar {
+	@include striped();
+	background-size: $acms-progress-bar-stripe-width $acms-progress-bar-stripe-width;
+}
+
+// アニメーション
+.acms-progress.acms-active .acms-progress-bar {
+	@include animation(progress-bar-stripes 2s linear infinite);
+}
+
+// Keyframes
+@-webkit-keyframes progress-bar-stripes {
+	from {
+		background-position: $acms-progress-bar-stripe-width 0;
+	}
+	to {
+		background-position: 0 0;
+	}
+}
+
+@keyframes progress-bar-stripes {
+	from {
+		background-position: $acms-progress-bar-stripe-width 0;
+	}
+	to {
+		background-position: 0 0;
+	}
+}

@@ -1,0 +1,224 @@
+/* ------------------------------
+ グリッドシステム
+------------------------------- */
+// コンテナー
+.acms-container{
+	max-width: $acms-container;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: ($grid-space / 2);
+	padding-left: ($grid-space / 2);
+	@include box-sizing(border-box);
+}
+
+
+
+// ---------------
+// グリッドシステムの全体を囲むコンテナー
+// ---------------
+
+.acms-grid,
+.acms-grid-r {
+	margin-left: ($grid-space / -2);
+	margin-right: ($grid-space / -2);
+	@include clearfix();
+}
+
+//.acms-grid-negativeは左右-10pxになって欲しくないときに使用する
+.acms-grid-negative {
+	margin-left: ($mobile-grid-space / -2);
+	margin-right: ($mobile-grid-space / -2);
+}
+
+//各acms-col-の左右の幅
+[class*='acms-col'] {
+	min-height: 1px;
+	padding-left: ($grid-space / 2); //各col-はpaddingを左右に着ける
+	padding-right: ($grid-space / 2); //各col-はpaddingを左右に着ける
+}
+
+@media (min-width : $breakpoint-md-min) {
+	.acms-grid,
+	.acms-grid-r {
+		margin-left: ($grid-space / -2);
+		margin-right: ($grid-space / -2);
+	}
+	[class*='acms-col'] {
+		padding-left: ($grid-space / 2); //各col-はpadding左右に着ける
+		padding-right: ($grid-space / 2); //各col-はpadding左右に着ける
+	}
+}
+
+[class*='acms-col'],
+[class*='acms-col']:before,
+[class*='acms-col']:after {
+	@include box-sizing(border-box);
+}
+
+
+// ---------------
+// 幅
+// ---------------
+// 1カラム
+@include make-grid(acms-col,null,$acms-columns);
+
+// ---------------
+// pushとpull
+// ---------------
+[class*='acms-push'],
+[class*='acms-pull']{
+	position: relative;
+}
+// ---------------
+// push 左の位置
+// ---------------
+@include make-pushed-grid(acms-push,null,$acms-columns);
+
+// ---------------
+// pull 右の位置
+// ---------------
+@include make-pulled-grid(acms-pull,null,$acms-columns);
+
+
+//---------------
+//小幅のグリッド
+//---------------
+@media (min-width : $breakpoint-sm-min)  {
+	// カラム
+	@include make-grid(acms-col,sm,$acms-columns);
+
+	// ---------------
+	// push 左の位置
+	// ---------------
+	[class*='acms-push-sm'] {
+		position: relative;
+		right: auto;
+	}
+	// pushしない
+	.acms-push-sm-auto{
+		left: auto;
+	}
+	@include make-pushed-grid(acms-push,sm,$acms-columns);
+
+	// ---------------
+	// pull 右の位置
+	// ---------------
+	[class*='acms-pull-sm'] {
+		position: relative;
+		left: auto;
+	}
+	// pullしない
+	.acms-pull-sm-auto{
+		right: auto;
+	}
+	@include make-pulled-grid(acms-pull,sm,$acms-columns);
+}
+
+//---------------
+//中くらい幅のグリッド
+//---------------
+@media (min-width : $breakpoint-md-min) {
+
+	@include make-grid(acms-col,md,$acms-columns);
+	// ---------------
+	// push 左の位置
+	// ---------------
+	[class*='acms-push-md'] {
+		position: relative;
+		right: auto;
+	}
+	// pushしない
+	.acms-push-md-auto{
+		left: auto;
+	}
+	@include make-pushed-grid(acms-push,md,$acms-columns);
+	// ---------------
+	// pull 右の位置
+	// ---------------
+	[class*='acms-pull-md'] {
+		position: relative;
+		left: auto;
+	}
+	// pullしない
+	.acms-pull-md-auto{
+		right: auto;
+	}
+	@include make-pulled-grid(acms-pull,md,$acms-columns);
+}
+
+
+
+//---------------
+//デスクトップ幅（1024px以上）のグリッド
+//---------------
+@media (min-width : $breakpoint-lg-min) {
+
+	@include make-grid(acms-col,lg,$acms-columns);
+
+	// ---------------
+	// push 左の位置
+	// ---------------
+
+	[class*='acms-push-lg'] {
+		position: relative;
+		right: auto;
+	}
+	// pushしない
+
+	.acms-push-lg-auto{
+		left: auto;
+	}
+	@include make-pushed-grid(acms-push,lg,$acms-columns);
+
+	// ---------------
+	// pull 右の位置
+	// ---------------
+	[class*='acms-pull-lg'] {
+		position: relative;
+		left: auto;
+	}
+	// pullしない
+	.acms-pull-lg-auto{
+		right: auto;
+	}
+	@include make-pulled-grid(acms-pull,lg,$acms-columns);
+}
+
+//---------------
+//デスクトップ幅（1440px以上）のグリッド
+//---------------
+@media (min-width : $breakpoint-xl-min) {
+	@include make-grid(acms-col,xl,$acms-columns);
+	// ---------------
+	// push 左の位置
+	// ---------------
+	[class*='acms-push-xl'] {
+		position: relative;
+		right: auto;
+	}
+	// pushしない
+	.acms-push-xl-auto{
+		left: auto;
+	}
+	@include make-pushed-grid(acms-push,xl,$acms-columns);
+	// ---------------
+	// pull 右の位置
+	// ---------------
+	[class*='acms-pull-xl'] {
+		position: relative;
+		left: auto;
+	}
+	// pullしない
+	.acms-pull-xl-auto{
+		right: auto;
+	}
+	@include make-pulled-grid(acms-pull,xl,$acms-columns);
+}
+
+// ---------------
+// エントリー(.acms-entry)内グリッド
+// ---------------
+
+.acms-entry .acms-col-12 {
+	clear: both;
+}

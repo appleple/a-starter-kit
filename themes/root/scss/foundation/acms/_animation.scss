@@ -1,0 +1,375 @@
+/* ------------------------------
+ アニメーション
+------------------------------ */
+/*フェードイン*/
+.acms-fade-in-strong {
+	opacity: $acms-fade-in-strong;
+	transition: opacity $acms-fade-speed;
+	 &:hover {
+		opacity: 1;
+		will-change: opacity;
+	}
+}
+.acms-fade-in {
+	opacity: $acms-fade-in;
+	transition: opacity $acms-fade-speed;
+	 &:hover {
+		opacity: 1;
+		will-change: opacity;
+	}
+}
+.acms-fade-in-light {
+	opacity: $acms-fade-in-light;
+	transition: opacity $acms-fade-speed;
+	 &:hover {
+		opacity: 1;
+		will-change: opacity;
+	}
+}
+
+/*フェードアウト*/
+.acms-fade-out-strong {
+	opacity: 1;
+	transition: opacity $acms-fade-speed;
+	 &:hover {
+		opacity: $acms-fade-out-strong;
+		will-change: opacity;
+	}
+}
+.acms-fade-out {
+	opacity: 1;
+	transition: opacity $acms-fade-speed;
+	 &:hover {
+		opacity: $acms-fade-out;
+		will-change: opacity;
+	}
+}
+.acms-fade-out-light {
+	opacity: 1;
+	transition: opacity $acms-fade-speed;
+	 &:hover {
+		opacity: $acms-fade-out-light;
+		will-change: opacity;
+	}
+}
+
+/* JSが読み込めない環境のとき */
+.no-js {
+	.acms-slide-top,
+	.acms-slide-left,
+	.acms-slide-bottom,
+	.acms-slide-right {
+		opacity: 1;
+		-webkit-transform: translateX(0px) translateY(0px);
+		transform: translateX(0px) translateY(0px);
+	}
+}
+
+
+
+
+/* スライド */
+/* 上からスライド */
+.acms-slide-top {
+	opacity: 0;
+	-webkit-transform: translateX(0px) translateY($acms-slide-top);
+	transform: translateX(0px) translateY($acms-slide-top);
+	//opacityの処理をtransformより早くすることでふわっとしたフェードのアニメーションを作っています。
+	-webkit-transition: opacity $acms-slide-opacity-speed, -webkit-transform $acms-slide-transform-speed cubic-bezier(0.165, 0.84, 0.44, 1); 
+	transition: opacity $acms-slide-opacity-speed, transform $acms-slide-transform-speed cubic-bezier(0.165, 0.84, 0.44, 1); 
+	.active  & {
+		opacity: 1;
+		-webkit-transform: translateX(0px) translateY(0px);
+		transform: translateX(0px) translateY(0px);
+		will-change: opacity,transform;
+	}
+}
+/* 下からスライド */
+.acms-slide-bottom {
+	opacity: 0;
+	-webkit-transform: translateX(0px) translateY($acms-slide-bottom);
+	transform: translateX(0px) translateY($acms-slide-bottom);
+	-webkit-transition: opacity $acms-slide-opacity-speed, -webkit-transform $acms-slide-transform-speed cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: opacity $acms-slide-opacity-speed, transform $acms-slide-transform-speed cubic-bezier(0.165, 0.84, 0.44, 1);
+	.active  & {
+		opacity: 1;
+		-webkit-transform: translateX(0px) translateY(0px);
+		transform: translateX(0px) translateY(0px);
+		will-change: opacity,transform;
+	}
+}
+/* 左からスライド */
+.acms-slide-left {
+	opacity: 0;
+	-webkit-transform: translateX($acms-slide-left) translateY(0px);
+	transform: translateX($acms-slide-left) translateY(0px);
+	-webkit-transition: opacity $acms-slide-opacity-speed, -webkit-transform $acms-slide-transform-speed cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: opacity $acms-slide-opacity-speed, transform $acms-slide-transform-speed cubic-bezier(0.165, 0.84, 0.44, 1);
+	.active  & {
+		opacity: 1;
+		-webkit-transform: translateX(0px) translateY(0px);
+		transform: translateX(0px) translateY(0px);
+		will-change: opacity,transform;
+	}
+}
+/* 右からスライド */
+.acms-slide-right {
+	opacity: 0;
+	-webkit-transform: translateX($acms-slide-right);
+	transform: translateX($acms-slide-right);
+	-webkit-transition: opacity $acms-slide-opacity-speed, -webkit-transform $acms-slide-transform-speed cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: opacity $acms-slide-opacity-speed, transform $acms-slide-transform-speed cubic-bezier(0.165, 0.84, 0.44, 1);
+	.active  & {
+		opacity: 1;
+		-webkit-transform: translateX(0px);
+		transform: translateX(0px);
+		will-change: opacity,transform;
+	}
+}
+
+
+
+/* ズーム */
+// 拡大
+// hoverしたときに拡大する
+.acms-zoom-in {
+	-webkit-transition: -webkit-transform $acms-zoom-transform-speed;
+	transition: transform $acms-zoom-transform-speed;
+	-webkit-transform: scale($acms-slide-zoom-in-default);
+	transform: scale($acms-slide-zoom-in-default);
+	 &:hover {
+		-webkit-transform: scale($acms-slide-zoom-in-hover);
+				transform: scale($acms-slide-zoom-in-hover);
+		will-change: opacity,transform;
+	}
+}
+// 拡大しながら表示する
+.acms-zoom-in-show {
+	opacity: 0;
+	-webkit-transition: opacity $acms-zoom-opacity-speed, -webkit-transform $acms-zoom-transform-speed;
+	transition: opacity $acms-zoom-opacity-speed, transform $acms-zoom-transform-speed;
+	-webkit-transform: scale($acms-slide-zoom-in-show);
+	transform: scale($acms-slide-zoom-in-show);
+	.active  &,
+	 &.active {
+		opacity: 1;
+		-webkit-transform: scale($acms-slide-zoom-in-default);
+				transform: scale($acms-slide-zoom-in-default);
+		will-change: opacity,transform;
+	}
+}
+
+// 縮小
+// hoverしたときに縮小する
+.acms-zoom-out {
+	-webkit-transition: -webkit-transform $acms-zoom-transform-speed;
+	transition: transform $acms-zoom-transform-speed;
+	-webkit-transform: scale($acms-slide-zoom-out-default);
+	-webkit-transform: scale($acms-slide-zoom-out-default);
+			transform: scale($acms-slide-zoom-out-default);
+	 &:hover {
+		-webkit-transform: scale($acms-slide-zoom-out-hover);
+		transform: scale($acms-slide-zoom-out-hover);
+		will-change: opacity,transform;
+	}
+}
+// 縮小しながら表示する
+.acms-zoom-out-show {
+	opacity: 0;
+	-webkit-transition: opacity $acms-zoom-opacity-speed, -webkit-transform $acms-zoom-transform-speed;
+	transition: opacity $acms-zoom-opacity-speed, transform $acms-zoom-transform-speed;
+	-webkit-transform: scale($acms-slide-zoom-out-show);
+	-webkit-transform: scale($acms-slide-zoom-out-show);
+			transform: scale($acms-slide-zoom-out-show);
+	.active  &,
+	 &.active {
+		opacity: 1;
+		-webkit-transform: scale($acms-slide-zoom-out-default);
+		transform: scale($acms-slide-zoom-out-default);
+		will-change: opacity,transform;
+	}
+}
+/* JSが読み込めない環境のとき */
+.no-js {
+	.acms-zoom-in-show,
+	.acms-zoom-out-show {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+
+
+
+/* ポップアップ */
+//上
+.acms-popup-top-child {
+	.acms-popup-child {
+		-webkit-transform: translateX(0px) translateY(0px);
+				transform: translateX(0px) translateY(0px);
+		-webkit-transition: -webkit-transform $acms-popup-down-speed;
+		transition: transform $acms-popup-down-speed;
+	}
+	 &:hover .acms-popup-child {
+		-webkit-transform: translateX(0px) translateY($acms-popup-top);
+				transform: translateX(0px) translateY($acms-popup-top);
+		-webkit-transition: transform $acms-popup-up-speed;
+		transition: transform $acms-popup-up-speed;
+		will-change: transform;
+	}
+}
+.acms-popup-top {
+	-webkit-transform: translateX(0px) translateY(0px);
+			transform: translateX(0px) translateY(0px);
+	transition: transform $acms-popup-down-speed;
+	 &:hover {
+		-webkit-transform: translateX(0px) translateY($acms-popup-top);
+				transform: translateX(0px) translateY($acms-popup-top);
+		transition: transform $acms-popup-up-speed;
+		will-change: transform;
+	}
+}
+
+//右
+.acms-popup-right-child {
+	.acms-popup-child {
+		-webkit-transform: translateX(0px) translateY(0px);
+				transform: translateX(0px) translateY(0px);
+		transition: transform $acms-popup-down-speed;
+	}
+	 &:hover .acms-popup-child {
+		-webkit-transform: translateX($acms-popup-right) translateY(0px);
+				transform: translateX($acms-popup-right) translateY(0px);
+		transition: transform $acms-popup-up-speed;
+		will-change: transform;
+	}
+}
+.acms-popup-right {
+	-webkit-transform: translateX(0px) translateY(0px);
+			transform: translateX(0px) translateY(0px);
+	transition: transform $acms-popup-down-speed;
+	 &:hover {
+		-webkit-transform: translateX($acms-popup-right) translateY(0px);
+				transform: translateX($acms-popup-right) translateY(0px);
+		transition: transform $acms-popup-up-speed;
+		will-change: transform;
+	}
+}
+
+//下
+.acms-popup-bottom-child {
+	.acms-popup-child {
+		-webkit-transform: translateX(0px) translateY(0px);
+				transform: translateX(0px) translateY(0px);
+		transition: transform $acms-popup-down-speed;
+	}
+	 &:hover .acms-popup-child {
+		-webkit-transform: translateX(0px) translateY($acms-popup-bottom);
+				transform: translateX(0px) translateY($acms-popup-bottom);
+		transition: transform $acms-popup-up-speed;
+		will-change: transform;
+	}
+}
+.acms-popup-bottom {
+	-webkit-transform: translateX(0px) translateY(0px);
+			transform: translateX(0px) translateY(0px);
+	transition: transform $acms-popup-down-speed;
+	 &:hover {
+		-webkit-transform: translateX(0px) translateY($acms-popup-bottom);
+				transform: translateX(0px) translateY($acms-popup-bottom);
+		transition: transform $acms-popup-up-speed;
+		will-change: transform;
+	}
+}
+
+//左
+.acms-popup-left-child {
+	.acms-popup-child {
+		-webkit-transform: translateX(0px) translateY(0px);
+				transform: translateX(0px) translateY(0px);
+		transition: transform $acms-popup-down-speed;
+	}
+	 &:hover .acms-popup-child {
+		-webkit-transform: translateX($acms-popup-left) translateY(0px);
+				transform: translateX($acms-popup-left) translateY(0px);
+		transition: transform $acms-popup-up-speed;
+		will-change: transform;
+	}
+}
+.acms-popup-left {
+	-webkit-transform: translateX(0px) translateY(0px);
+			transform: translateX(0px) translateY(0px);
+	transition: transform $acms-popup-down-speed;
+	 &:hover {
+		-webkit-transform: translateX($acms-popup-left) translateY(0px);
+				transform: translateX($acms-popup-left) translateY(0px);
+		transition: transform $acms-popup-up-speed;
+		will-change: transform;
+	}
+}
+
+/* 左から */
+.acms-delay:nth-child(1),
+.acms-delay-first {
+	-webkit-transition-delay: $acms-animation-delay-first;
+	transition-delay: $acms-animation-delay-first;
+}
+.acms-delay:nth-child(2),
+.acms-delay-second {
+	-webkit-transition-delay: $acms-animation-delay-second;
+	transition-delay: $acms-animation-delay-second;
+}
+.acms-delay:nth-child(3),
+.acms-delay-third {
+	-webkit-transition-delay: $acms-animation-delay-third;
+	transition-delay: $acms-animation-delay-third;
+}
+.acms-delay:nth-child(4),
+.acms-delay-fourth {
+	-webkit-transition-delay: $acms-animation-delay-fourth;
+	transition-delay: $acms-animation-delay-fourth;
+}
+
+/* 右（反対方向）から */
+.acms-delay-reverse:nth-child(4),
+.acms-delay-reverse-fourth {
+	-webkit-transition-delay: $acms-animation-delay-reverse-fourth;
+	transition-delay: $acms-animation-delay-reverse-fourth;
+}
+.acms-delay-reverse:nth-child(3),
+.acms-delay-reverse-third {
+	-webkit-transition-delay: $acms-animation-delay-reverse-third;
+	transition-delay: $acms-animation-delay-reverse-third;
+}
+.acms-delay-reverse:nth-child(2),
+.acms-delay-reverse-second {
+	-webkit-transition-delay: $acms-animation-delay-reverse-second;
+	transition-delay: $acms-animation-delay-reverse-second;
+}
+.acms-delay-reverse:nth-child(1),
+.acms-delay-reverse-first {
+	-webkit-transition-delay: $acms-animation-delay-reverse-first;
+	transition-delay: $acms-animation-delay-reverse-first;
+}
+
+
+
+
+/* JSが読み込めない環境のとき */
+.no-js {
+	.acms-slide-top,
+	.acms-slide-left,
+	.acms-slide-bottom,
+	.acms-slide-right {
+		opacity: 1;
+		-webkit-transform: translateX(0px) translateY(0px);
+				transform: translateX(0px) translateY(0px);
+	}
+	.acms-zoom-in-show,
+	.acms-zoom-out-show {
+		opacity: 1;
+		-webkit-transform: scale(1);
+				transform: scale(1);
+	}
+}

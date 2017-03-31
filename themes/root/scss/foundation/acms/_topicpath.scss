@@ -1,0 +1,33 @@
+/* ------------------------------
+ トピックパス
+------------------------------- */
+.acms-topicpath {
+	list-style: none;
+	margin: 0 0 10px 0;
+	padding: 0;
+	@include font-size(11);
+	line-height: 1;
+	// 中の要素
+	li {
+		float: left;
+		margin-right: 5px;
+		color: #999999;
+		+ li:before {
+			content: "/";
+			margin-right: 5px;
+			color: #999999;
+		}
+	}
+	// リンク
+	a {
+		color: #333333;
+		@include font-size(11);
+		line-height: 1;
+		 &:link {
+			text-decoration: none;
+		}
+		 &:hover {
+			text-decoration: underline;
+		}
+	}
+}

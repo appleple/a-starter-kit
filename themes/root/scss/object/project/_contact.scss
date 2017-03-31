@@ -1,0 +1,77 @@
+/* ------------------------------
+　　お問い合わせ
+------------------------------ */
+.p-contact-box {
+  p {
+    &.message {
+      margin: 0 $grid-space 35px $grid-space;
+      font-weight: bold;
+    }
+    &.contact-no {
+      margin: 0;
+      @include font-size(30);
+      font-weight: bold;
+      color: #333;
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  .p-contact-form {
+    width: 100%;
+    margin: 0 0 20px 0;
+    border: 6px solid $primary-color;
+    th {
+    }
+  }
+
+  tr {
+    border-bottom: 1px solid $primary-color;
+  }
+
+  th,
+  td {
+    display: block;
+  }
+
+  th {
+    padding: 14px 14px 5px 14px;
+    text-align: left;
+  }
+
+  td {
+    padding: 5px 14px 15px 14px;
+  }
+
+  @media screen and (min-width: $breakpoint-md-min) {
+    th,
+    td {
+      display: table-cell;
+      padding: 30px 15px;
+    }
+
+    th {
+      position: relative; // ラベルの位置の基準になっている
+      width: 260px;
+      padding: 30px 15px 20px 60px;
+      vertical-align: top;
+      box-sizing: border-box;
+
+      @media screen and (min-width: $breakpoint-md-min) {
+        .c-label-required {
+          position: absolute;
+          left: 13px;
+        }
+      }
+    }
+
+    td {
+      padding: 30px 25px 30px 15px;
+    }
+  }
+}
+
+.p-contact-bottom {
+  margin: 0 0 30px 0;
+}

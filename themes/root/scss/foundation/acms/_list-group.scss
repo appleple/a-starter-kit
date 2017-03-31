@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+@import "variable.scss";
+@import "mixins.scss";
+@import "system-variable.scss";
+
+/* ------------------------------  
+ リスト
+------------------------------- */
+.acms-list-group-heading {
+	margin-bottom: 0;
+	padding: 5px 0;
+	color: #333;
+	border-bottom: 2px solid #333;
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+}
+.acms-list-group {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border-top: 1px solid $acms-list-group-border-color;
+	.acms-list-group-heading + & {
+		border-top: 0;
+	}
+	+ .acms-list-group  {
+		margin: 0 0 10px 0;
+	}
+}
+.acms-list-group-item {
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+	color: #333;
+	border-bottom: 1px solid $acms-list-group-border-color;
+	&:hover {
+		background: #EEE;
+	}
+	&:hover,
+	&:visited,
+	&:active,
+	&:focus {
+		color: #333;
+		text-decoration: none;
+	}
+}
+.acms-list-group-title-link {
+	margin: 0 10px;
+	text-decoration: none;
+	&:hover,
+	&:visited,
+	&:active,
+	&:focus {
+		text-decoration: underline;
+	}
+}

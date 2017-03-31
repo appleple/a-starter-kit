@@ -1,0 +1,107 @@
+/* ------------------------------
+ ラベル
+------------------------------- */
+// デフォルト
+.acms-label {
+	padding: 3px 7px;
+	border-radius: 3px;
+	background-color: $acms-label-default;
+	color: $acms-label-text-color;
+	@include font-size(10);
+	vertical-align: middle;
+	 & a{
+		color: $acms-label-text-color!important;
+	}
+	a &:hover{
+		color: $acms-label-text-color;
+		text-decoration: none;
+		background: darken($acms-label-default, 17%);
+		cursor: pointer;
+	}
+	a &:visited,
+	 &:active,
+	 &:focus{
+		color: $acms-label-text-color;
+	}
+}
+
+// 大きめ
+.acms-label-large {
+	@include font-size(16);
+}
+
+.acms-label-group {
+	.acms-label:first-child {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	.acms-label:last-child {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	.acms-label-side:first-child {
+		border-right: 1px solid $acms-label-text-color;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	.acms-label-side:last-child {
+		border-left: 1px solid $acms-label-text-color;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+}
+
+
+// success
+.acms-label-success {
+	background-color: $acms-label-color;
+	a &:hover{
+		background: darken($acms-label-color, 17%);
+	}
+	a &:visited,
+	 &:active,
+	 &:focus{
+		color: $acms-label-text-color;
+	}
+}
+// info
+.acms-label-info {
+	background-color: $acms-label-info-color;
+	a &:hover{
+		background: darken($acms-label-info-color, 17%);
+	}
+	a &:visited,
+	 &:active,
+	 &:focus{
+		color: $acms-label-text-color;
+	}
+}
+// warning
+.acms-label-warning {
+	background-color: $acms-label-warning-color;
+	a &:hover{
+		background: darken($acms-label-warning-color, 17%);
+	}
+	a &:visited,
+	 &:active,
+	 &:focus{
+		color: $acms-label-text-color;
+	}
+}
+// danger
+.acms-label-danger {
+	background-color: $acms-label-danger-color;
+	a &:hover{
+		background: darken($acms-label-danger-color, 17%);
+	}
+	a &:visited,
+	 &:active,
+	 &:focus{
+		color: $acms-label-text-color;
+	}
+}
+
+// 管理画面内にてtdの幅が変わってしまってレイアウトが崩れてしまう場合
+.acms-admin-labelbox {
+	min-width: 55px;
+}

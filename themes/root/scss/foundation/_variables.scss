@@ -1,0 +1,109 @@
+// ------------------------------
+//　ベース
+// ------------------------------
+// コンテイナー
+$container                        : 1170px;
+$narrow-container                 : 960px;
+$narrow-container-md              : 750px;
+
+// グリッドの間隔
+$grid-space                       : 15px;
+$grid-space-mobile                : 10px;
+$sp-container                     : 20px;
+
+// ------------------------------
+//　フォント
+// ------------------------------
+$font-base                        : "游ゴシック", YuGothic, "ヒラギノ角ゴ pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+//$font-base: "ヒラギノ角ゴ Pro", $font-base;
+$font-heading                     : TsukuOldGothicStd-B, sans-serif;
+$font-en: ModeMinAStd-B , $font-base;
+
+// ------------------------------
+//　ファイルのパス
+// ------------------------------
+$acms-font                        : '/themes/system/fonts/'; // フォントのパスを上書き
+$root-theme-img                   : '/themes/takisada/images/'; // 画像のパスを上書き
+
+// ------------------------------
+//　カラー
+// ------------------------------
+// 背景色
+$bg-color                         : #fff;
+
+// プライマリーカラー
+$primary-color                    : #ffd93c;
+// セカンダリーカラー
+$secondary-color                  : #333;
+// ベースカラー
+$base-color                       : #ffed1f;
+
+$fav-color                        : #d0011b;
+
+// ボタン
+$btn-color                        : #333;
+$btn-active-color                 : #000;
+
+// 各sns色
+$facebook-color                   : #3b5999;
+$twitter-color                    : #55acee;
+$gplus-color                      : #dd4b39;
+$youtube-color                    : #cd201f;
+
+// ------------------------------
+//　ヘッダー
+// ------------------------------
+$sp-header-height                  : 60px;
+$global-nav-height                  : 50px;
+
+// ------------------------------
+//　エントリー
+// ------------------------------
+$entry-margin-bottom              : 25px;
+
+$entry-element-margin-bottom-sm   : 10px !default;
+$entry-element-margin-bottom-md   : 25px !default;
+$entry-element-margin-bottom-lg   : 30px !default;
+
+// ------------------------------
+//　スライダー
+// ------------------------------
+$main-slider-height-mobile        : 300px;
+$main-slider-height-desktop       : 450px;
+
+
+// ------------------------------
+//　カードレイアウト
+// ------------------------------
+$card-grid-mobile-space: 10px;
+$card-grid-space: 30px;
+
+// ------------------------------
+//　ギャラリー
+// ------------------------------
+$gallery-grid-space: 30px;
+
+// 正方形ギャラリー
+$gallery-square-grid-space-mobile: 2px;
+$gallery-square-grid-space: 20px;
+
+// ------------------------------
+//　サムネイル
+// ------------------------------
+$thumbnail-grid-space: 30px;
+
+// ------------------------------
+//　フォーム
+// ------------------------------
+$form-step-border-width: 3px;
+$form-step-border-color: #FFF;
+$form-step-height: 50px;
+$form-step-arrow-width: 15px;
+
+$form-step-item-padding: 5px;
+$form-step-item-padding-desktop: 20px;
+
+$form-step-base-bg-color: #F2F0F0;
+$form-step-base-text-color: #666;
+$form-step-active-bg-color: #666;
+$form-step-active-text-color: #FFF;

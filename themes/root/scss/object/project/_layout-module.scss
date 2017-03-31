@@ -1,0 +1,18 @@
+/* ------------------------------
+　　レイアウトモジュール
+------------------------------ */
+.p-layout {
+  // ここにコンポーネントのクラス名を書いて上書きします
+}
+/* 余白 */
+.p-layout-space {
+  padding: 10px $grid-space 25px $grid-space;
+  .acms-container {
+    padding: 0;
+  }
+}
+@media screen and (min-width: $breakpoint-md-min) {
+  .p-layout-space {
+    padding: 30px $grid-space 20px $grid-space;
+  }
+}

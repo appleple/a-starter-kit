@@ -1,0 +1,163 @@
+/* ------------------------------
+　　ページャー
+------------------------------ */
+/* 　ページャー
+------------------------------ */
+.c-pager {
+  list-style: none;
+  margin: 0 -5px 50px -5px;
+  padding: 0;
+  text-align: center;
+  li {
+    display: inline-block;
+    margin: 0 5px;
+    line-height: 1;
+    &.cur { /* 現在いる位置 */
+      padding: 8px 12px;
+      color: #fff;
+      background: #333;
+      border-radius: 5px;
+    }
+  }
+}
+
+.c-pager-link {
+  display: block;
+  padding: 8px 12px;
+  color: #333;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background: #FFF;
+  &:visited,
+  &:focus,
+  &:active {
+    color: #333;
+  }
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+    background: #333;
+  }
+}
+
+.c-pager-link-forward {
+  float: right;
+}
+
+.c-pager-link-prev {
+  float: left;
+}
+
+/* 　前後リンク
+------------------------------ */
+.c-serial-nav {
+  list-style: none;
+  margin: (-$entry-margin-bottom) 0 60px 0;
+  padding: 0;
+  a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 3px;
+    background: #4d4a40;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    &:hover,
+    &:visited,
+    &:focus,
+    &:active {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+.c-serial-nav-list {
+  margin: 0;
+  padding: 0;
+}
+
+.c-serial-nav-item {
+  float: none;
+  display: block;
+  margin: 0 0 10px 0;
+}
+
+.c-serial-nav-index {
+  text-align: center;
+  a {
+    display: inline-block;
+  }
+}
+
+.c-serial-nav-prev {
+  text-align: left;
+  a {
+    padding-left: 40px;
+  }
+}
+
+.c-serial-nav-next {
+  text-align: right;
+  a {
+    padding-right: 40px;
+  }
+}
+
+.c-serial-nav-arrow {
+  position: absolute;
+  color: $primary-color;
+  @include font-size(18);
+  transition: all .2s;
+  .c-serial-nav-prev & {
+    top: 50%;
+    left: 15px;
+    margin: -9px 0 0 0;
+  }
+  .c-serial-nav-next & {
+    top: 50%;
+    right: 15px;
+    margin: -9px 0 0 0;
+  }
+}
+
+@media screen and (min-width: $breakpoint-sm-min) {
+  .c-serial-nav {
+    margin: 0 -15px 60px -15px;
+  }
+  .c-serial-nav-list {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+    transition: all .2s;
+    a:hover {
+      background: #403a26;
+    }
+  }
+  .c-serial-nav-prev a:hover .c-serial-nav-arrow {
+    left: 10px;
+  }
+  .c-serial-nav-next a:hover .c-serial-nav-arrow {
+    right: 10px;
+  }
+  .c-serial-nav-item {
+    padding: 0 15px;
+    vertical-align: top;
+    box-sizing: border-box;
+  }
+  .c-serial-nav-index {
+    display: table-cell;
+    width: 20%;
+    white-space: nowrap;
+  }
+  .c-serial-nav-prev {
+    display: table-cell;
+    width: 40%;
+  }
+  .c-serial-nav-next {
+    display: table-cell;
+    width: 40%;
+  }
+}

@@ -1,0 +1,115 @@
+/* ------------------------------
+ タブ
+------------------------------- */
+.acms-tabs{
+
+	.acms-tabs-panel {
+		padding: 10px;
+		border: 1px solid #CFCFCF;
+		background: #F2F2F4;
+	}
+
+	// タブの切り替え
+	.js-acms_tabs,
+	.js-acms_admin_tabs{
+		@include clearfix();
+		margin: 0;
+		padding: 0;
+		li{
+			list-style: none;
+			float: left;
+			margin-right: 2px;
+			 &:first-child {
+				margin-left: 10px;
+			}
+		}
+		a{
+			display: block;
+			padding: 10px 8px;
+			color: #333333;
+			@include font-size(14);
+			line-height: 1;
+			outline: none;
+			border-top: 1px solid #CFCFCF;
+			border-left: 1px solid #CFCFCF;
+			border-right: 1px solid #CFCFCF;
+			border-radius: 3px 3px 0 0;
+
+			 &:hover{
+				color: #666666;
+				background: #F2F2F4;
+			}
+
+			// 現在いる位置
+			 &.js-acms_tab-active{
+				color: #006DEC;
+				background: #F2F2F4;
+				position: relative;
+				 &:before {
+					content: "";
+					position: absolute;
+						left: 0;
+						bottom: -1px;
+					width: 100%;
+					height: 1px;
+					background: #F2F2F4;
+				}
+			}
+		}
+	}
+}
+
+.acms-tabs-inverse {
+	.acms-tabs-panel {
+		padding: 10px;
+		background: #FFF;
+	}
+
+	// タブの切り替え
+	.js-acms_tabs,
+	.js-acms_admin_tabs{
+		@include clearfix();
+		margin: 0;
+		padding: 0;
+		li{
+			list-style: none;
+			float: left;
+			margin-right: 2px;
+			 &:first-child {
+				margin-left: 10px;
+			}
+		}
+		a{
+			display: block;
+			padding: 10px 8px;
+			color: #333333;
+			@include font-size(14);
+			line-height: 1;
+			outline: none;
+			border-bottom: 1px solid #CFCFCF;
+			border-radius: 3px 3px 0 0;
+			background: #F2F2F4;
+
+			 &:hover{
+				text-decoration: none;
+				background: #FFF;
+				border-bottom: 1px solid #FFF;
+			}
+
+			// 現在いる位置
+			 &.js-acms_tab-active{
+				background: #FFF;
+				border-bottom: 1px solid #FFF;
+			}
+		}
+	}
+}
+
+// タブ内の見出しはmarginを外す
+.acms-tabs-panel > .acms-admin-title2{
+	margin-top: 0;
+}
+
+.acms-tabs-panel .acms-admin-title2 + .acms-table-admin-edit {
+	margin-bottom: 10px;
+}

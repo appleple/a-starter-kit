@@ -1,0 +1,98 @@
+/* ------------------------------
+ サムネイル
+------------------------------- */
+// 角丸
+.acms-img-rounded,
+.acms-img-rounded img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	border-radius:6px;
+	// キャプション
+	.acms-img-caption {
+		border-radius: 0 0 6px 6px;
+	}
+}
+
+// 影
+.acms-img-shadow {
+	max-width: 100%;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+// ボーダー
+.acms-img-bordered {
+	max-width: 100%;
+	padding: 4px;
+	border: 1px solid #DDDDDD;
+	background-color: #FFFFFF;
+}
+
+// ---------------
+// キャプション
+// ---------------
+// キャプションボックス
+.acms-img-captionBox {
+	position: relative;
+	display: inline-block;
+	max-width: 100%;
+	vertical-align: middle;
+	 &:hover .acms-img-hover {
+		@include opacity(1);
+	}
+}
+// キャプション
+.acms-img-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0;
+	padding: 20px 20px 12px;
+	background-color: #333333;
+	background-color: rgba(0,0,0,0.5);
+	color: #FFFFFF;
+}
+
+.acms-img-captionBox img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+// ---------------
+// hover
+// ---------------
+.acms-img-hover {
+	@include opacity(0);
+	@include transition(all 0.2s ease-in-out);
+}
+
+// ---------------
+// サムネイル
+// ---------------
+.acms-thumbnail {
+	display: block;
+	margin-bottom: 10px;
+	padding:6px;
+	border: 1px solid #DDDDDD;
+	border-radius: 6px;
+	background-color: #FFFFFF;
+	color: #333;
+	text-decoration: none;
+	// img
+	img {
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+	// hover
+	 &:hover {
+		border: 1px solid #CCC;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+		cursor: pointer;
+	}
+	a &:hover {
+		color: #666;
+	}
+}
