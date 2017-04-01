@@ -44,8 +44,5 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.3"  
-  },
-  "dependencies": {
-    "gulp": "^3.9.1"
   }
 }
