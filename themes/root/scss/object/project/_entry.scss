@@ -427,18 +427,6 @@
     @include font-size(16);
     vertical-align: middle;
   }
-
-  .share-item-facebook { /* Facebook */
-    @include share-sns-btn($facebook-color);
-  }
-
-  .share-item-twitter { /* Twitter */
-    @include share-sns-btn($twitter-color);
-  }
-
-  .share-item-gplus { /* Google + */
-    @include share-sns-btn($gplus-color);
-  }
 }
 
 

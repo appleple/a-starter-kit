@@ -1,15 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const host = 'example.com';
 
 module.exports = {
   entry: {
-    js: [path.join(__dirname, 'themes/rootTheme/js/src/index.js')]
+    js: [path.join(__dirname, 'themes/root/js/src/index.js')]
   },
   output: {
-    path: path.join(__dirname, 'themes/rootTheme/js/dest/'),
-    publicPath: 'http://localhost:8080/themes/rootTheme/js/dest/',
+    path: path.join(__dirname, 'themes/root/js/dest/'),
+    publicPath: 'http://localhost:8080/themes/root/js/dest/',
     filename: 'bundle.js',
   },
   module: {

@@ -1,5 +1,5 @@
 {
-  "name": "project name",
+  "name": "name",
   "version": "1.0.0",
   "description": "Webサイト制作プロジェクト",
   "keywords": [
@@ -8,24 +8,29 @@
   "homepage": "http://example.com/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "css:watch": "onchange \"themes/rootTheme/scss\" -- npm run css:build",
+    "css:watch": "onchange \"themes/root/scss\" -- npm run css:build",
     "css:build": "npm-run-all css:sass css:prefix css:comb",
-    "css:sass": "node-sass ./themes/rootTheme/scss/site.scss ./themes/rootTheme/css/bundle.css",
-    "css:prefix": "autoprefixer -b 'last 2 versions' ./themes/rootTheme/css/bundle.css",
-    "css:comb": "csscomb ./themes/rootTheme/css/bundle.css",
-    "css:min": "csso ./themes/rootTheme/css/bundle.css public/files/css/bundle.min.css",
-    "js:watch": "onchange \"themes/rootTheme/js/src\" -- npm run js:build",
+    "css:sass": "node-sass ./themes/root/scss/site.scss ./themes/root/css/bundle.css",
+    "css:prefix": "postcss -u autoprefixer -b 'last 2 versions' ./themes/root/css/bundle.css",
+    "css:comb": "csscomb ./themes/root/css/bundle.css",
+    "css:min": "csso ./themes/root/css/bundle.css public/files/css/bundle.min.css",
+    "js:watch": "onchange \"themes/root/js/src\" -- npm run js:build",
     "js:build": "webpack --config webpack.config.prod.js",
-    "sync": "browser-sync start --proxy http://example.com/ --files ./themes/rootTheme/** --open http://example.com/",
-    "start": "npm-run-all -p js:watch css:watch"
+    "sync": "browser-sync start --proxy http://example.com/ --files ./themes/root/** --open http://example.com/",
+    "start": "npm-run-all -p js:watch css:watch sync"
   },
   "author": "appleple",
-  "license": "appleple",
+  "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^6.7.7",
     "babel-cli": "^6.18.0",
+    "babel-loader": "^6.2.10",
     "babel-plugin-transform-es2015-for-of": "^6.22.0",
     "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.22.0",
     "browser-sync": "^2.18.6",
+    "css-loader": "^0.26.1",
+    "csscomb": "^4.0.1",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-import-resolver-webpack": "^0.8.1",
@@ -33,16 +38,17 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
+    "file-loader": "^0.10.0",
     "node-sass": "^4.3.0",
     "npm-run-all": "^4.0.1",
     "onchange": "^3.2.1",
-    "babel-loader": "^6.2.10",
-    "file-loader": "^0.10.0",
-    "css-loader": "^0.26.1",
     "sass-loader": "^4.1.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.3"  
+    "webpack-dev-server": "^1.16.3"
+  },
+  "dependencies": {
+    "postcss-cli": "^3.0.0"
   }
 }

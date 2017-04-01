@@ -1,13 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    js: [path.join(__dirname, 'themes/rootTheme/js/src/index.js')]
+    js: [path.join(__dirname, 'themes/root/js/src/index.js')]
   },
   output: {
-    path: path.join(__dirname, 'themes/rootTheme/js/dest/'),
+    path: path.join(__dirname, 'themes/root/js/dest/'),
     filename: 'bundle.js'
   },
   resolve: {
@@ -22,10 +21,6 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style", "css?sourceMap!sass")
       },
       {
         test: /\.(jpg|png)$/,
