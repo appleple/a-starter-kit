@@ -31,7 +31,7 @@
     "browser-sync": "^2.18.6",
     "css-loader": "^0.26.1",
     "csscomb": "^3.1.7",
-    "csso": "^3.0.1",
+    "cssnano": "^3.10.0",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-import-resolver-webpack": "^0.8.1",
