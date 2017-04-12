@@ -1,12 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
+const pkg = require('./package.json');
 
 module.exports = {
   entry: {
-    js: [path.join(__dirname, 'themes/root/js/src/index.js')]
+    js: [path.join(__dirname, `${pkg.theme}/src/js/index.js`)]
   },
   output: {
-    path: path.join(__dirname, 'themes/root/js/dest/'),
+    path: path.join(__dirname, `${pkg.theme}/dest/`),
     filename: 'bundle.js'
   },
   resolve: {
