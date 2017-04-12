@@ -44,7 +44,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('css/bundle.css'),
+    new ExtractTextPlugin('src/bundle.css'),
 
     new BrowserSyncPlugin({
         host: 'localhost',
