@@ -5,19 +5,22 @@
   "keywords": [
     "CMS"
   ],
-  "homepage": "http://example.com/",
-  "theme": "themes/root",
+  "config": {
+    "local": "http://example.com/",
+    "theme": "themes/root"
+  },
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "css:watch": "onchange \"$npm_package_theme/scss\" -- npm run css:build",
+    "css:watch": "onchange \"$npm_package_config_theme/scss\" -- npm run css:build",
     "css:build": "npm-run-all css:sass css:prefix css:comb css:min",
-    "css:sass": "node-sass ./$npm_package_theme/src/scss/site.scss ./$npm_package_theme/dest/bundle.css",
-    "css:prefix": "postcss -u autoprefixer -b 'last 2 versions' ./$npm_package_theme/dest/bundle.css",
-    "css:comb": "csscomb ./$npm_package_theme/dest/bundle.css",
-    "css:min": "postcss ./$npm_package_theme/dest/bundle.css -u cssnano > ./$npm_package_theme/dest/bundle.min.css",
-    "js:watch": "onchange \"$npm_package_theme/js/src\" -- npm run js:build",
+    "css:sass": "node-sass ./$npm_package_config_theme/src/scss/site.scss ./$npm_package_config_theme/dest/bundle.css",
+    "css:prefix": "postcss -u autoprefixer -b 'last 2 versions' ./$npm_package_config_theme/dest/bundle.css",
+    "css:comb": "csscomb ./$npm_package_config_theme/dest/bundle.css",
+    "css:min": "postcss ./$npm_package_config_theme/dest/bundle.css -u cssnano > ./$npm_package_config_theme/dest/bundle.min.css",
+    "js:watch": "onchange \"$npm_package_config_theme/js/src\" -- npm run js:build",
     "js:build": "webpack --config webpack.config.prod.js",
-    "sync": "browser-sync start --proxy $npm_package_homepage --files ./$npm_package_theme/** --open $npm_package_homepage",
+    "sync": "browser-sync start --proxy $npm_package_config_local --files ./$npm_package_config_theme/** --open $npm_package_config_local",
     "start": "npm-run-all -p js:watch css:watch sync",
     "dev": "webpack-dev-server"
   },
