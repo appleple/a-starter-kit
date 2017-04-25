@@ -15,7 +15,7 @@
     "css:prefix": "postcss -u autoprefixer -b 'last 2 versions' ./$npm_package_theme/dest/bundle.css",
     "css:comb": "csscomb ./$npm_package_theme/dest/bundle.css",
     "css:min": "postcss ./$npm_package_theme/dest/bundle.css -u cssnano > ./$npm_package_theme/dest/bundle.min.css",
-    "js:watch": "onchange \"$npm_package_theme/src/js/src\" -- npm run js:build",
+    "js:watch": "onchange \"$npm_package_theme/js/src\" -- npm run js:build",
     "js:build": "webpack --config webpack.config.prod.js",
     "sync": "browser-sync start --proxy $npm_package_homepage --files ./$npm_package_theme/** --open $npm_package_homepage",
     "start": "npm-run-all -p js:watch css:watch sync",
