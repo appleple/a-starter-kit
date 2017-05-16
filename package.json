@@ -7,7 +7,7 @@
   ],
   "config": {
     "local": "http://example.com/",
-    "theme": "themes/root"
+    "theme": "root"
   },
   "main": "index.js",
   "scripts": {
