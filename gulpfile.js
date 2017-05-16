@@ -18,7 +18,7 @@ const rootTheme = package.config.theme;
 
 //SCSSファイルをCSSにコンパイルする
 gulp.task('acmssass', function () {
-    gulp.src(['themes/' + rootTheme + '/scss/foundation/acms/acms.scss'])
+    gulp.src(['themes/' + rootTheme + '/src/scss/foundation/acms/acms.scss'])
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 version', 'ie 9'],
@@ -26,11 +26,11 @@ gulp.task('acmssass', function () {
             remove: false
         }))
         .pipe(csscomb())// *1
-        .pipe(gulp.dest('themes/' + rootTheme + '/css'));
+        .pipe(gulp.dest('themes/' + rootTheme + '/dest'));
 });
 // SCSSファイルを圧縮する
 gulp.task('acmsmin', function () {
-    gulp.src(['themes/' + rootTheme + '/scss/foundation/acms/acms.scss'])
+    gulp.src(['themes/' + rootTheme + '/src/scss/foundation/acms/acms.scss'])
         .pipe(rename({
             suffix: '.min'
         }))
@@ -42,13 +42,13 @@ gulp.task('acmsmin', function () {
         }))
         .pipe(csscomb())// *1
         .pipe(cssnano({safe: true}))
-        .pipe(gulp.dest('themes/' + rootTheme + '/css'));
+        .pipe(gulp.dest('themes/' + rootTheme + '/dest'));
 });
 
 //テーマ
 //SCSSファイルをCSSにコンパイルする
 gulp.task('sass', function () {
-    gulp.src(['themes/' + rootTheme + '/scss/site.scss'])
+    gulp.src(['themes/' + rootTheme + '/src/scss/site.scss'])
         .pipe(sass())
         .pipe(autoprefixer({
             browsers: ['last 2 versions', 'ie 9'],
@@ -58,23 +58,23 @@ gulp.task('sass', function () {
         .pipe(rename({
             basename: 'bundle'
         }))
-        .pipe(gulp.dest('themes/' + rootTheme + '/css'))
+        .pipe(gulp.dest('themes/' + rootTheme + '/dest'))
         .pipe(rename({
             suffix: '.min'
         }))
         .pipe(cssnano({safe: true}))
-        .pipe(gulp.dest('themes/' + rootTheme + '/css'));
+        .pipe(gulp.dest('themes/' + rootTheme + '/dest'));
 });
 
 
 // プロジェクトのSCSSとCSSファイルを監視する
 gulp.task('project', function() {
-    gulp.watch('themes/' + rootTheme + '/scss/**',['sass']);
+    gulp.watch('themes/' + rootTheme + '/src/scss/**',['sass']);
 });
 
 gulp.task('acms', function() {
-    gulp.watch('themes/' + rootTheme + '/scss/foundation/acms/**',['acmssass']);
-    gulp.watch('themes/' + rootTheme + '/css/acms.css',['acmsmin']);
+    gulp.watch('themes/' + rootTheme + '/src/scss/foundation/acms/**',['acmssass']);
+    gulp.watch('themes/' + rootTheme + '/dest/acms.css',['acmsmin']);
 });
 
 // デフォルトのタスク
