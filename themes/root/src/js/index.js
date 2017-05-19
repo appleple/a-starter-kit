@@ -1,15 +1,10 @@
-//URL Dispatcherのサンプル
-
 const Dispatcher = require('url-dispatcher');
-import samplePage from './sample';
+// import samplePage from './sample';
 
-const dispatcher = new Dispatcher({
-    routes: {
-        /**
-         * サンプル
-         */
-        '/*': function () {
-            samplePage(jQuery);
-        },
-    }
+new Dispatcher({
+  routes: {
+    '/*:splat': function () {
+      // samplePage(jQuery);
+    },
+  }
 });

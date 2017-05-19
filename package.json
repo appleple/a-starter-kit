@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "node ./tools/eslint.js",
     "js:watch": "onchange \"themes/$npm_package_config_theme/src/js\" -- npm run js:build",
-    "js:build": "npm run lint && browserify themes/$npm_package_config_theme/src/js/index.js -t babelify | uglifyjs -c > themes/$npm_package_config_theme/dest/bundle.js",
+    "js:build": "npm run lint && browserify themes/$npm_package_config_theme/src/js/index.js -t babelify > themes/$npm_package_config_theme/dest/bundle.js",
     "sync": "browser-sync start --proxy $npm_package_config_local --files ./themes/$npm_package_config_theme/** --open $npm_package_config_local",
     "css:watch": "gulp",
     "css:build": "gulp acmssass && gulp acmsmin && gulp sass",
