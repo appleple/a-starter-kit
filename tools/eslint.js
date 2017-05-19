@@ -5,7 +5,7 @@ const cli = new CLIEngine({
   useEslintrc: true,
   fix: false
 });
-const report = cli.executeOnFiles([`themes/${pkg.config.theme}/js/src/`]);
+const report = cli.executeOnFiles([`themes/${pkg.config.theme}/src/js/`]);
 const formatter = cli.getFormatter();
 console.log(formatter(report.results));
 if (report.errorCount !== 0) {
