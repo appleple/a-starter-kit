@@ -1,4 +1,4 @@
-URL Dispatcherのサンプル
+//URL Dispatcherのサンプル
 
 const Dispatcher = require('url-dispatcher');
 import samplePage from './sample';
