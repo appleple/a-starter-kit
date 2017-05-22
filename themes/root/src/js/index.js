@@ -1,10 +1,21 @@
-const Dispatcher = require('url-dispatcher');
 // import samplePage from './sample';
 
-new Dispatcher({
-  routes: {
-    '/*:splat': function () {
-      // samplePage(jQuery);
-    },
-  }
+const Dispatcher = require('url-dispatcher');
+
+const dispatcher = new Dispatcher({
+ routes: {
+  /**
+   * サンプルページ
+   */
+  '/*': () => {
+  // samplePage(jQuery);
+}
+}
+});
+
+ACMS.Ready(() => {
+ /**
+  * dun dispatch
+  */
+ dispatcher.run(location.href);
 });
