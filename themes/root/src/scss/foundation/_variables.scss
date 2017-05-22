@@ -2,79 +2,79 @@
 //　ベース
 // ------------------------------
 // コンテイナー
-$container                        : 1170px;
-$narrow-container                 : 960px;
-$narrow-container-md              : 750px;
+$container                         : 1170px;
+$narrow-container                  : 960px;
+$narrow-container-md               : 750px;
 
 // グリッドの間隔
-$grid-space                       : 30px;
-$grid-space-mobile                : 20px;
+$grid-space                        : 30px;
+$grid-space-mobile                 : 20px;
 
 // ------------------------------
 //　フォント
 // ------------------------------
-$font-hiragino: "ヒラギノ角ゴ pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
-$font-yu-gothic                        : "游ゴシック", YuGothic, "ヒラギノ角ゴ pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
-$font-meiryo       : Meiryo,'メイリオ',"ヒラギノ角ゴ pro", "Hiragino Kaku Gothic Pro",'ＭＳ Ｐゴシック','MS PGothic',Verdana,sans-serif;
-$font-base                        : $font-hiragino;
-$font-heading                     : $font-base;
+$font-hiragino                     : "ヒラギノ角ゴ pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+$font-yu-gothic                    : "游ゴシック", YuGothic, "ヒラギノ角ゴ pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+$font-meiryo                       : Meiryo,'メイリオ',"ヒラギノ角ゴ pro", "Hiragino Kaku Gothic Pro",'ＭＳ Ｐゴシック','MS PGothic',Verdana,sans-serif;
+$font-base                         : $font-hiragino;
+$font-heading                      : $font-base;
 
 // ------------------------------
 //　ファイルのパス
 // ------------------------------
-$acms-font                        : '/themes/system/fonts/'; // フォントのパスを上書き
-$root-theme-img                   : '/themes/**/images/'; // 画像のパスを上書き
+$acms-font                         : '/themes/system/fonts/'; // フォントのパスを上書き
+$root-theme-img                    : '/themes/**/images/'; // 画像のパスを上書き
 
 // ------------------------------
 //　カラー
 // ------------------------------
 // 背景色
-$bg-color                         : #fff;
+$bg-color                          : #fff;
 
 // プライマリーカラー
-$primary-color                    : #ffd93c;
+$primary-color                     : #ffd93c;
 // セカンダリーカラー
-$secondary-color                  : #333;
+$secondary-color                   : #333;
 // ベースカラー
-$base-color                       : #ffed1f;
+$base-color                        : #ffed1f;
 
 // ボタン
-$btn-color                        : #333;
-$btn-active-color                 : #000;
+$btn-color                         : #333;
+$btn-active-color                  : #000;
 
 // 各sns色
-$facebook-color                   : #3b5999;
-$twitter-color                    : #55acee;
-$gplus-color                      : #dd4b39;
-$youtube-color                    : #cd201f;
+$facebook-color                    : #3b5999;
+$twitter-color                     : #55acee;
+$gplus-color                       : #dd4b39;
+$youtube-color                     : #cd201f;
 
 // ------------------------------
 //　ヘッダー
 // ------------------------------
 $sp-header-height                  : 60px;
-$global-nav-height                  : 50px;
+$global-nav-height                 : 50px;
 
 // ------------------------------
 //　エントリー
 // ------------------------------
-$entry-margin-bottom              : 25px;
+$entry-margin-bottom               : 25px;
 
-$entry-element-margin-bottom-sm   : 10px !default;
-$entry-element-margin-bottom-md   : 25px !default;
-$entry-element-margin-bottom-lg   : 30px !default;
+$entry-element-margin-bottom-sm    : 10px !default;
+$entry-element-margin-bottom-md    : 25px !default;
+$entry-element-margin-bottom-lg    : 30px !default;
 
 // ------------------------------
 //　フォーム
 // ------------------------------
-$form-step-border-width: 3px;
-$form-step-border-color: #FFF;
-$form-step-height: 50px;
-$form-step-arrow-width: 15px;
+$form-step-border-width            : 3px;
+$form-step-border-color            : #FFF;
+$form-step-height                  : 50px;
+$form-step-arrow-width             : 15px;
 
-$form-step-item-padding: 5px;
-$form-step-item-padding-desktop: 20px;
+$form-step-item-padding            : 5px;
+$form-step-item-padding-desktop    : 20px;
 
-$form-step-base-bg-color: #F2F0F0;
-$form-step-base-text-color: #666;
-$form-step-active-bg-color: #666;
-$form-step-active-text-color: #FFF;
+$form-step-base-bg-color           : #F2F0F0;
+$form-step-base-text-color         : #666;
+$form-step-active-bg-color         : #666;
+$form-step-active-text-color       : #FFF;
