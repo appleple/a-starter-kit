@@ -11,3 +11,4 @@ acms.php
 /setup_
 /.idea
 /cache
+.DS_Store
