@@ -1,0 +1,137 @@
+<!-- BEGIN\ unit:loop --><!-- BEGIN\ unitGroup#rear -->
+</div><!-- END\ unitGroup#rear --><!-- BEGIN\ unitGroup#front -->
+<div class="js-unit_group-align acms-entry-unit-full \{class\}"><!-- END\ unitGroup#front --><!-- BEGIN\ inplace#front --><!-- BEGIN_MODULE\ Touch_SessionWithCompilation -->
+<div class="js-edit_inplace align_\{unit:loop.align\}" data-align="\{unit:loop.align\}[align2label]" id="\{unit:loop.unit_eid\}-\{unit:loop.utid\}"><!-- END_MODULE\ Touch_SessionWithCompilation --><!-- END\ inplace#front -->
+<!-- BEGIN\ clear -->
+<hr class="clearHidden"><!-- END\ clear --><!-- BEGIN\ unit#text -->
+
+<!-- テキスト -->
+<!-- BEGIN\ p -->
+<p\{class\}>\{text\}[nl2br]</p><!-- END\ p --><!-- BEGIN\ h2 -->
+<h2\{class\} <!-- BEGIN_IF [\{extend_tag\}/nem] -->id="\{extend_tag\}"<!-- END_IF -->>\{text\}[nl2br]</h2><!-- END\ h2 --><!-- BEGIN\ h3 -->
+<h3\{class\} <!-- BEGIN_IF [\{extend_tag\}/nem] -->id="\{extend_tag\}"<!-- END_IF -->>\{text\}[nl2br]</h3><!-- END\ h3 --><!-- BEGIN\ h4 -->
+<h4\{class\} <!-- BEGIN_IF [\{extend_tag\}/nem] -->id="\{extend_tag\}"<!-- END_IF -->>\{text\}[nl2br]</h4><!-- END\ h4 --><!-- BEGIN\ h5 -->
+<h5\{class\} <!-- BEGIN_IF [\{extend_tag\}/nem] -->id="\{extend_tag\}"<!-- END_IF -->>\{text\}[nl2br]</h5><!-- END\ h5 --><!-- BEGIN\ ul -->
+<ul\{class\}>\{text\}[list]</ul><!-- END\ ul --><!-- BEGIN\ ol -->
+<ol\{class\}>\{text\}[list]</ol><!-- END\ ol --><!-- BEGIN\ dl -->
+<dl\{class\}>\{text\}[definition_list]</dl><!-- END\ dl --><!-- BEGIN\ blockquote -->
+<div class="entry-container"><blockquote\{class\}>\{text\}[nl2br]</blockquote></div><!-- END\ blockquote --><!-- BEGIN\ table -->
+<div class="entry-container"><table\{class\}>\{text\}[table]</table></div><!-- END\ table --><!-- BEGIN\ pre -->
+<div class="entry-container"><pre\{class\}>\{text\}</pre></div><!-- END\ pre --><!-- BEGIN\ none -->
+\{text\}[raw]<!-- END\ none --><!-- BEGIN\ markdown -->
+\{text\}[markdown]<!-- END\ markdown --><!-- BEGIN\ wysiwyg -->
+\{text\}[raw]<!-- END\ wysiwyg -->
+
+@include("/include/unit/tag-select.html")
+<!-- END\ unit#text --><!-- BEGIN\ unit#table -->
+
+<!-- テーブル -->
+<div class="column-table-\{align\}">
+	<div class="entry-container">
+		\{table\}[raw]
+	</div>
+</div><!-- END\ unit#table --><!-- BEGIN\ unit#image -->
+
+<!-- 画像 -->
+<div class="column-image-\{align\}\{display_size_class\}"\{display_size\}[raw]><!-- BEGIN\ link#front --><!-- BEGIN_IF [\{url\}/nem/] -->
+	<a href="\{url\}"\{viewer\}[raw] data-caption="\{caption\}"><!-- END_IF --><!-- END\ link#front -->
+		<img class="columnImage" src="%{HTTP_ROOT}\{path\}" alt="\{alt\}" width="\{x\}" height="\{y\}"><!-- BEGIN\ link#rear -->
+	</a><!-- END\ link#rear --><!-- BEGIN_IF [\{caption\}/nem] -->
+	<p class="caption">\{caption\}</p><!-- END_IF -->
+</div><!-- END\ unit#image --><!-- BEGIN\ unit#file -->
+
+<!-- ファイル -->
+<div class="column-file-\{align\} js_notStyle">
+	<a href="%{HTTP_ROOT}\{path\}"><img class="columnIcon" src="%{HTTP_ROOT\}\{icon\}" alt="ファイルを開く" width="\{x\}" height="\{y\}"></a>
+	<!-- BEGIN_IF [\{caption\}/nem] --><p class="caption">\{caption\}</p><!-- END_IF -->
+</div><!-- END\ unit#file --><!-- BEGIN\ unit#map -->
+
+<!-- 地図 -->
+<div class="column-map-\{align\}\{display_size_class\}"\{display_size\}[raw]>
+	@include("/include/gmaps-error.html")
+	<img src="//maps.googleapis.com/maps/api/staticmap?center=\{lat\},\{lng\}&zoom=\{zoom\}&size=\{x\}x\{y\}&maptype=roadmap&markers=\{lat\},\{lng\}&key=%{GOOGLE_API_KEY}" alt="\{msg\}" width="\{x\}" height="\{y\}" title="クリックで地図が動かせるようになります。">
+</div><!-- END\ unit#map --><!-- BEGIN\ unit#yolp -->
+
+<!-- yahoo地図 -->
+<div class="column-yolp-\{align\}\{display_size_class\}"\{display_size\}[raw]>
+	<img src="\{proxy\}http://map.olp.yahooapis.jp/OpenLocalPlatform/V1/static?appid=%{YAHOO_API_KEY}&lat=\{lat\}&lon=\{lng\}&z=\{zoom\}&width=\{x\}&height=\{y\}&pin=\{lat\},\{lng\},,red&mode=\{mode\}&style=\{style\}" alt="yahoo map" width="\{x\}" height="\{y\}" title="クリックで地図が動かせるようになります。">
+</div><!-- END\ unit#yolp --><!-- BEGIN\ unit#youtube -->
+
+<!-- YouTube -->
+<div class="column-youtube-\{align\}\{display_size_class\}"\{display_size\}[raw]>
+	<div class="column-iframe">
+		<iframe width="\{x\}" height="\{y\}" src="https://www.youtube.com/embed/\{youtubeId\}?wmode=transparent&rel=0" frameborder="0" allowfullscreen></iframe>
+	</div>
+</div>
+<!-- END\ unit#youtube --><!-- BEGIN\ unit#video -->
+
+<!-- Video -->
+<div class="column-video-\{align\}\{display_size_class\}"\{display_size\}[raw]>
+	<div class="column-iframe">
+		<iframe width="\{x\}" height="\{y\}" src="https://www.youtube.com/embed/\{videoId\}?wmode=transparent&rel=0" frameborder="0" allowfullscreen></iframe>
+	</div>
+</div>
+<!-- END\ unit#video --><!-- BEGIN\ unit#eximage -->
+
+<!-- 画像URL -->
+<div class="column-eximage-\{align\}\{display_size_class\}"\{display_size\}[raw]><!-- BEGIN\ link#front -->
+	<a href="\{url\}"\{viewer\}[raw]><!-- END\ link#front -->
+		<img class="columnImage" src="\{normal\}" alt="\{alt\}" width="\{x\}" height="\{y\}"><!-- BEGIN\ link#rear -->
+	</a><!-- END\ link#rear --><!-- BEGIN_IF [\{caption\}/nem] -->
+	<p class="caption">\{caption\}</p><!-- END_IF -->
+</div>
+<!-- END\ unit#eximage --><!-- BEGIN\ unit#media -->
+
+<!-- media -->
+<div class="column-media-\{align\}\{display_size_class\}"\{display_size\}[raw]><!-- BEGIN\ type#image -->
+	<!-- BEGIN\ link#front -->
+	<a href="\{url\}"\{viewer\}[raw]><!-- END\ link#front -->
+		<img class="columnImage" src="%{HTTP_ROOT}\{path\}" alt="\{alt\}" width="\{x\}"><!-- BEGIN\ link#rear -->
+	</a><!-- END\ link#rear --><!-- BEGIN_IF [\{caption\}/nem] -->
+	<p class="caption">\{caption\}</p><!-- END_IF --><!-- BEGIN\ text:veil -->
+	<p class="">\{text\}</p><!-- END\ text:veil -->
+
+	<!-- END\ type#image --><!-- BEGIN\ type#file -->
+
+	<a href="%{HTTP_ROOT}\{path\}"><!-- BEGIN_IF [\{thumbnail\}/nem/] -->
+	<img class="columnIcon" src="%{HTTP_ARCHIVES_DIR}\{thumbnail\}" alt="ファイルを開く" width="\{x\}" height="\{y\}"><!-- ELSE -->
+	<img class="columnIcon" src="%{HTTP_ROOT}\{icon\}" alt="ファイルを開く" width="\{x\}" height="\{y\}"><!-- END_IF -->
+	</a><!-- BEGIN_IF [\{caption\}/nem] -->
+	<p class="caption">\{caption\}</p><!-- END_IF --><!-- BEGIN\ text:veil -->
+	<p class="">\{text\}</p><!-- END\ text:veil -->
+	<!-- END\ type#file -->
+</div>
+<!-- END\ unit#media --><!-- BEGIN\ unit#quote -->
+
+<!-- 引用 -->
+<div class="column-quote-\{align\}"\{display_size\}[raw]><!-- BEGIN\ html:veil -->
+	\{quote_html\}[raw]<!-- END\ html:veil --><!-- BEGIN_IF [\{quote_title\}/nem/] -->
+	<blockquote class="js-biggerlink"><!-- BEGIN\ image:veil -->
+		<div class="quoteImageContainer">
+			<img src="\{quote_image\}" class="quoteImage" width="154" alt="">
+		</div><!-- END\ image:veil -->
+		<div>
+			<p class="quoteTitle"><a href="\{quote_url\}" class="quoteTitleLink">\{quote_title\}</a></p><!-- BEGIN\ description:veil --><!-- BEGIN\ site_name:veil -->
+			<p class="quoteSiteName">\{quote_site_name\}</p><!-- END\ site_name:veil -->
+			<p class="quoteDescription">\{quote_description\}[trim(180, '...')]</p><!-- END\ description:veil -->
+		</div>
+		<hr class="clearHidden">
+	</blockquote><!-- END_IF -->
+</div>
+<!-- END\ unit#quote --><!-- BEGIN\ unit#module -->
+
+<!-- モジュール -->
+<div class="column-module">
+	\{view\}[raw]
+</div>
+<!-- END\ unit#module --><!-- BEGIN\ unit#break -->
+
+<!-- 改ページ -->
+<!-- \{label\} -->
+
+<!-- END\ unit#break --><!-- BEGIN\ unit#custom -->
+
+
+<!-- BEGIN\ inplace#rear --><!-- BEGIN_MODULE Touch_SessionWithCompilation --></div><!-- END_MODULE Touch_SessionWithCompilation --><!-- END\ inplace#rear -->
+<!-- BEGIN\ unitGroup#last --></div><!-- END\ unitGroup#last -->
+<!-- END\ unit:loop -->
