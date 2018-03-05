@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="ja"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="ja"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja"> <!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	@section("head-meta")
+	@include("/include/head/meta.html")
+	@endsection
+
+	@section("head-link")
+	@include("/include/head/link.html")
+	@endsection
+
+	@section("head-js")
+	@include("/include/head/js.html")
+	@endsection
+</head>
+<body>
+@section("body-start")
+@include("/include/body_start.html")
+@endsection
+
+<!-- ヘッダー -->
+@section("header")
+@include("/include/header.html")
+@endsection
+
+<!-- ※管理用パーツ -->
+@section("admin-part")
+@include("/admin/action.html")
+@endsection
+
+<main>
+	@section("main")
+	<p>継承してメインコンテンツを設定してください</p>
+
+	<!-- 確認用テンプレート -->
+	@include("/include/check-seo.html")
+	@endsection
+</main>
+
+<!-- オフキャンバス -->
+@include("/include/components/offcanvas.html")
+
+<!-- フッター -->
+@section("footer")
+@include("/include/footer.html")
+@endsection
+
+@section("body-end")
+@include("/include/body_end.html")
+@endsection
+</body>
+</html>

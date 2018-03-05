@@ -1,0 +1,29 @@
+<h3 class="acms-admin-admin-title2">一覧ページで表示させる地図の中心の緯度経度設定</h3>
+<table class="adminTable acms-admin-table-admin-edit">
+<tr>
+	<th>地図</th>
+	<td class="js-map-editable">
+		<div class="acms-admin-form-group">
+			<label for="input-text-map-search_text" class="acms-admin-hide-visually">住所で検索する</label>
+			<input type="text" name="" value="" id="input-text-map-search_text" class="js-editable_map-search_text" disabled="disabled" size="40" />
+			<input type="button" name="" value="検索" class="js-editable_map-search_button acms-admin-btn-admin" disabled="disabled" />
+		</div>
+		<div class="acms-admin-form-group">
+			<img class="js-map_editable-container" src="http://maps.google.com/maps/api/staticmap?center={index_map_lat},{index_map_lng}&zoom={index_map_zoom}&size=640x400&maptype=roadmap&markers={index_map_lat},{index_map_lng}&key=%{GOOGLE_API_KEY}" width="640" height="400" style="display:block;" />
+		</div>
+	<!-- BEGIN index_map_lat:veil -->
+	<label for="input-text-index_map_lat">緯度</label> <input type="text" name="index_map_lat" value="{index_map_lat}" size="9" id="input-text-index_map_lat" class="js-map_editable-lat" />
+	<label for="input-text-index_map_lng">経度</label> <input type="text" name="index_map_lng" value="{index_map_lng}" size="10" id="input-text-index_map_lng" class="js-map_editable-lng" />
+	<label for="input-text-index_map_zoom">ズーム</label> <input type="text" name="index_map_zoom" value="{index_map_zoom}" size="10" id="input-text-index_map_zoom" class="js-map_editable-zoom" />
+	<!-- END index_map_lat:veil -->
+	<!-- BEGIN index_map_lat:empty -->
+	<label for="input-text-index_map_lat">緯度</label> <input type="text" name="index_map_lat" value="35.172775" size="9" id="input-text-index_map_lat" class="js-map_editable-lat" />
+	<label for="input-text-index_map_lng">経度</label> <input type="text" name="index_map_lng" value="136.887466" size="10" id="input-text-index_map_lng" class="js-map_editable-lng" />
+	<label for="input-text-index_map_zoom">ズーム</label> <input type="text" name="index_map_zoom" value="7" size="10" id="input-text-index_map_zoom" class="js-map_editable-zoom" />
+	<!-- END index_map_lat:empty -->
+	<input type="hidden" name="field[]" value="index_map_lat" />
+	<input type="hidden" name="field[]" value="index_map_lng" />
+	<input type="hidden" name="field[]" value="index_map_zoom" />
+	</td>
+</tr>
+</table>

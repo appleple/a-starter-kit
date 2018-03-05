@@ -1,34 +1,52 @@
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- BEGIN_MODULE Ogp -->
 <!-- BEGIN_MODULE Touch_Entry -->
-<link rel="canonical" href="%{PERMALINK}"><!-- END_MODULE Touch_Entry -->
-<title><!-- GET_Rendered id="title" --></title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--#include file="/include/head/robots.html"-->
+<link rel="canonical" href="%{PERMALINK}">
+<!-- END_MODULE Touch_Entry -->
+
+<title>{title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+@include("/include/head/robots.html")
 <meta property="og:url" content="%{PERMALINK}">
 <meta property="og:site_name" content="%{ROOT_BLOG_NAME}">
-<meta property="og:title" content="<!-- GET_Rendered id="title" -->"><!-- BEGIN_MODULE Blog_Field id="global" --><!-- BEGIN fb_admins:veil -->
-<meta property="fb:admins" content="{fb_admins}"><!-- END fb_admins:veil --><!-- END_MODULE Blog_Field --><!-- BEGIN_MODULE Touch_Top --><!-- BEGIN_IF [%{BID}/eq/1] -->
-<meta property="og:type" content="website"><!-- ELSE -->
-<meta property="og:type" content="article"><!-- END_IF -->
-<meta property="og:description" content="<!-- GET_Rendered id="ogp_blog_meta_description" -->">
-<meta property="og:image" content="<!-- GET_Rendered id="ogp_blog_image" -->">
-<meta name="description" content="<!-- GET_Rendered id="ogp_blog_meta_description" -->">
-<meta name="keywords" content="<!-- GET_Rendered id="ogp_blog_meta_keywords" -->"><!-- END_MODULE Touch_Top --><!-- BEGIN_MODULE Touch_Index -->
-<meta property="og:type" content="article"><!-- BEGIN_MODULE Touch_Category -->
-<meta property="og:image" content="<!-- GET_Rendered id="ogp_category_image" -->">
-<meta property="og:description" content="<!-- GET_Rendered id="ogp_category_meta_description" -->">
-<meta name="description" content="<!-- GET_Rendered id="ogp_category_meta_description" -->">
-<meta name="keywords" content="<!-- GET_Rendered id="ogp_category_meta_keywords" -->"><!-- END_MODULE Touch_Category --><!-- BEGIN_MODULE Touch_NotCategory -->
-<meta property="og:image" content="<!-- GET_Rendered id="ogp_blog_image" -->">
-<meta property="og:description" content="<!-- GET_Rendered id="ogp_blog_meta_description" -->">
-<meta name="description" content="<!-- GET_Rendered id="ogp_blog_meta_description" -->">
-<meta name="keywords" content="<!-- GET_Rendered id="ogp_blog_meta_keywords" -->"><!-- END_MODULE Touch_NotCategory --><!-- END_MODULE Touch_Index -->
+<meta property="og:title" content="{title}">
+<meta property="og:type" content="{type}">
 
+<!-- BEGIN_IF [{description}/nem/] -->
+<meta property="og:description" content="{description}[trim(200, '...')|delnl|escape]"><!-- END_IF --><!-- BEGIN_IF [{image}/nem/] -->
+<meta property="og:image" content="%{HTTP_ARCHIVES_DIR}{image}"><!-- END_IF --><!-- BEGIN_IF [{description}/nem/] -->
+<meta name="description" content="{description}[trim(200, '...')|delnl|escape]"><!-- END_IF --><!-- BEGIN_IF [{keyword}/nem/] -->
+<meta name="keywords" content="{keyword}"><!-- END_IF -->
+
+<meta name="twitter:title" content="{title}">
 <!-- BEGIN_MODULE Touch_Entry -->
-<meta property="og:type" content="article">
-<meta property="og:image" content="<!-- GET_Rendered id="ogp_image" -->">
-<meta property="og:description" content="<!-- GET_Rendered id="ogp_entry_meta_description" -->">
-<meta name="description" content="<!-- GET_Rendered id="ogp_entry_meta_description" -->">
+<meta name="twitter:card" content="summary_large_image">
+<!-- END_MODULE Touch_Entry -->
+<!-- BEGIN_MODULE Touch_NotEntry -->
+<meta name="twitter:card" content="summary">
+<!-- END_MODULE Touch_NotEntry -->
 
-<!-- BEGIN_MODULE Entry_Field --><!-- BEGIN_IF [{entry_meta_keywords}/nem] -->
-<meta name="keywords" content="<!-- GET_Rendered id="ogp_entry_meta_keywords" -->"><!-- END_IF --><!-- END_MODULE Entry_Field --><!-- END_MODULE Touch_Entry -->
+<meta name="twitter:domain" content="%{DOMAIN}">
+<!-- BEGIN_IF [{image}/nem/] -->
+<meta name="twitter:image" content="%{HTTP_ARCHIVES_DIR}{image}">
+<!-- END_IF -->
+<!-- END_MODULE Ogp -->
+
+<!-- BEGIN_MODULE Blog_Field id="BF_root" -->
+<!-- BEGIN_IF [{twitter_account}/nem/] -->
+<meta name="twitter:creator" content="@{twitter_account}">
+<!-- END_IF -->
+<!-- BEGIN_IF [{twitter_creator}/nem/] -->
+<meta name="twitter:site" content="@{twitter_creator}">
+<!-- END_IF -->
+<!-- BEGIN_IF [{twitter_creator}/nem/] -->
+<meta name="twitter:creator" content="@{twitter_creator}">
+<!-- END_IF -->
+
+<!-- BEGIN fb_admins:veil -->
+<meta property="fb:admins" content="{fb_admins}">
+<!-- END fb_admins:veil -->
+<!-- BEGIN google_site_verification:veil -->
+<meta name="google-site-verification" content="{google_site_verification}">
+<!-- END google_site_verification:veil -->
+<!-- END_MODULE Blog_Field -->

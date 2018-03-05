@@ -1,25 +1,23 @@
-<script src="/js/development.js" charset="UTF-8"></script>
-<!-- 変数の読み込み -->
-<!--#include file="/admin/vars_field.html" -->
-
 <!-- サイト設定 基本 -->
-<!--#include file="/admin/blog/base.html" -->
+@include("/admin/blog/base.html")
 
 <!-- SEOの設定 -->
-<!-- GET_Template id="field_seo_blog" -->
+@include("/admin/blog/seo.html")
 
 <!-- OGPの設定 -->
-<!-- GET_Template id="field_ogp" fb_admin="true" image="true" -->
+@include("/admin/blog/ogp.html")
 
 <!-- 会社情報 -->
-<!-- GET_Template id="field_organization" name="true" zip="true" address="true" tel="true" tel_time="true" fax="true" -->
+@include("/admin/blog/info.html")
 
 <!-- SNSアカウントの設定 -->
-<!-- GET_Template id="field_sns" facebook="true" twitter="true" google_plus="true" youtube="true" -->
+@include("/admin/blog/sns.html")
+
+<!-- script要素の設定 -->
+@include("/admin/blog/script.html")
 
 <!-- アナリティクスの設定 -->
-<!-- GET_Template id="field_analytics" tag="true" view_id="true" client_id="true" -->
+@include("/admin/blog/analytics.html")
 
-
-<!-- URLコンテキスト別 -->
-<!--#include file="/admin/category/bcd_%{BCD}.html" -->
+<!-- Search Consoleの設定 -->
+@include("/admin/blog/search-console.html")

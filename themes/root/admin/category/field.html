@@ -1,15 +1,9 @@
-<script src="/js/development.js" charset="UTF-8"></script>
-<!-- 変数の読み込み -->
-<!--#include file="/admin/vars_field.html" -->
-
 <!-- SEOの設定 -->
-<!-- GET_Template id="field_seo_category" -->
-<!-- OGPの設定 -->
-<!-- GET_Template id="field_ogp" fb_admin="false" image="true" -->
+@include("/admin/category/seo.html")
+@include("/admin/category/ogp.html")
 
 <!-- 共通項目 -->
-<!-- GET_Template id="field_index_base" bg_image="true" description="true" -->
+@include("/admin/category/common.html")
 
-<!-- URLコンテキスト別 -->
-<!--#include file="/admin/category/bcd_%{BCD}.html" -->
-<!--#include file="/admin/category/ccd_%{CCD}.html" -->
+<!-- 各カテゴリー別 -->
+@include("/admin/category/field_%{CCD}.html")

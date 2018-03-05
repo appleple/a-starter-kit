@@ -1,0 +1,30 @@
+<h3 class="acms-admin-admin-title2">ページタイトル設定</h3>
+<table class="adminTable acms-admin-table-admin-edit">
+	<tr>
+		<th><label for="input-img-page_image">背景画像</label><i data-acms-tooltip="カテゴリーの 背景画像を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip-hover"></i></th>
+		<td>
+			<!-- BEGIN page_image@path:veil -->
+			<img src="%{ARCHIVES_DIR}{page_image@path}" width="600" class="acms-admin-img-responsive"><br>
+			<input type="hidden" name="page_image@old" value="{page_image@path}">
+			<div class="acms-admin-form-checkbox">
+				<input type="checkbox" name="page_image@edit" value="delete" id="input-img-page_image_delete">
+				<label for="input-img-page_image_delete">
+					<i class="acms-admin-ico-checkbox"></i>削除
+				</label>
+			</div>
+			<!-- END page_image@path:veil -->
+			<input type="file" name="page_image" size="20" id="input-img-page_image">
+			<input type="hidden" name="field[]" value="page_image">
+			<input type="hidden" name="page_image:extension" value="image">
+			<input type="hidden" name="page_image@size" value="1400">
+			<input type="hidden" name="page_image@filename" value="">
+		</td>
+	</tr>
+	<tr>
+		<th><label for="input-text-page_description">説明文</label><i data-acms-tooltip="カテゴリーの 説明文を設定します。" class="acms-admin-icon-tooltip js-acms-tooltip-hover"></i></th>
+		<td>
+			<textarea name="page_description" rows="5" id="input-text-page_description" style="width:80%;">{page_description}</textarea>
+			<input type="hidden" name="field[]" value="page_description" />
+		</td>
+	</tr>
+</table>

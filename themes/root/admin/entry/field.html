@@ -1,13 +1,9 @@
-<!-- <script src="/js/development.js" charset="UTF-8"></script> -->
-<!-- 変数の読み込み -->
-<!--##include file="/admin/vars_field.html" -->
-
 <!-- SEOの設定 -->
-<!--#include file="/admin/entry/field_seo.html" -->
+@include("/admin/entry/field_seo.html")
 <!-- OGPの設定 -->
-<!--#include file="/admin/entry/field_ogp.html" -->
+@include("/admin/entry/field_ogp.html")
 
 <!-- URLコンテキスト別 -->
-<!--#include file="/admin/entry/bcd_%{BCD}.html" -->
-<!--#include file="/admin/entry/rccd_%{RCCD}.html" -->
-<!--#include file="/admin/entry/ccd_%{CCD}.html" -->
+@include("/admin/entry/bcd_%{BCD}.html")
+@include("/admin/entry/rccd_%{RCCD}.html")
+@include("/admin/entry/ccd_%{CCD}.html")
