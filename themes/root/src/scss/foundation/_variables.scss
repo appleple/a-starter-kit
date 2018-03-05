@@ -1,6 +1,19 @@
 // ------------------------------
 //　ベース
 // ------------------------------
+
+// min-width指定
+$breakpoint-sm-min : 480px;
+$breakpoint-md-min : 768px;
+$breakpoint-lg-min : 1024px;
+$breakpoint-xl-min : 1440px;
+
+// max-width指定
+$breakpoint-sm-max: ($breakpoint-sm-min - 1); //479px
+$breakpoint-md-max: ($breakpoint-md-min - 1); //767px
+$breakpoint-lg-max: ($breakpoint-lg-min - 1); //1023px
+$breakpoint-xl-max: ($breakpoint-xl-min - 1); //1439px
+
 // コンテイナー
 $container                         : 1170px;
 $narrow-container                  : 960px;

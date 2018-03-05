@@ -1,21 +1,13 @@
-// import samplePage from './sample';
+import Dispatcher from 'a-dispatcher';
+import samplePage from './sample';
 
-const Dispatcher = require('url-dispatcher');
+const dispatcher = new Dispatcher();
 
-const dispatcher = new Dispatcher({
- routes: {
-  /**
-   * サンプルページ
-   */
-  '/*': () => {
-  // samplePage(jQuery);
-}
-}
-});
+dispatcher.addRoute('^/sample', samplePage);
 
 ACMS.Ready(() => {
- /**
-  * dun dispatch
-  */
- dispatcher.run(location.href);
+  /**
+   * dun dispatch
+   */
+  dispatcher.run(location.pathname);
 });

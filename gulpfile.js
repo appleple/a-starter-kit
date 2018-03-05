@@ -16,40 +16,14 @@ const rename = require('gulp-rename'),
 
 const rootTheme = package.config.theme;
 
-//SCSSファイルをCSSにコンパイルする
-gulp.task('acmssass', function () {
-    gulp.src(['themes/' + rootTheme + '/src/scss/foundation/acms/acms.scss'])
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 2 version', 'ie 9'],
-            cascade: false,
-            remove: false
-        }))
-        .pipe(csscomb())// *1
-        .pipe(gulp.dest('themes/' + rootTheme + '/dest'));
-});
-// SCSSファイルを圧縮する
-gulp.task('acmsmin', function () {
-    gulp.src(['themes/' + rootTheme + '/src/scss/foundation/acms/acms.scss'])
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(sass())
-        .pipe(autoprefixer({
-            browsers: ['last 4 versions', 'ie 9'],
-            cascade: false,
-            remove: false
-        }))
-        .pipe(csscomb())// *1
-        .pipe(cssnano({safe: true}))
-        .pipe(gulp.dest('themes/' + rootTheme + '/dest'));
-});
 
 //テーマ
 //SCSSファイルをCSSにコンパイルする
 gulp.task('sass', function () {
     gulp.src(['themes/' + rootTheme + '/src/scss/site.scss'])
-        .pipe(sass())
+        .pipe(sass({
+          includePaths: ['node_modules']
+        }))
         .pipe(autoprefixer({
             browsers: ['last 2 versions', 'ie 9'],
             cascade: false
@@ -72,10 +46,6 @@ gulp.task('project', function() {
     gulp.watch('themes/' + rootTheme + '/src/scss/**',['sass']);
 });
 
-gulp.task('acms', function() {
-    gulp.watch('themes/' + rootTheme + '/src/scss/foundation/acms/**',['acmssass']);
-    gulp.watch('themes/' + rootTheme + '/dest/acms.css',['acmsmin']);
-});
 
 // デフォルトのタスク
-gulp.task('default', ['project','acms']);
+gulp.task('default', ['project']);

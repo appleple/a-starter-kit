@@ -12,6 +12,32 @@
   clip: rect(0 0 0 0);
 }
 
+@mixin font-size($sizeValue){
+  font-size: $sizeValue + px;
+  // font-size: ($sizeValue / 10) * 1rem;
+}
+
+@mixin opacity($opacity){
+  opacity: $opacity;
+}
+
+@mixin box-sizing($boxmodel){
+  box-sizing: $boxmodel;
+}
+
+// ------------------------------
+// clearfix
+// ------------------------------
+@mixin clearfix(){
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
 
 // ------------------------------
 //　ボーダー

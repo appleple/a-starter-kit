@@ -1,25 +1,29 @@
 @charset "utf-8";
 
-// Foundation
-// acms.css兼用
-@import "foundation/acms/variable";
-@import "foundation/acms/mixins";
-// オリジナル
+/**
+ * Original
+ */
 @import "foundation/variables";
 @import "foundation/mixins";
-@import "foundation/sass-easing";
 
-// ベース
-@import "foundation/font-awesome/font-awesome";
+/**
+ * Base
+ */
+@import "awesome-sass-easing/_sass-easing.scss";
+@import "font-awesome/scss/font-awesome.scss";
 @import "foundation/base";
 @import "foundation/edit-page";
 @import "foundation/animation";
 
-// Layout
+/**
+ * Layout
+ */
 @import "layout/header";
 @import "layout/footer";
 
-// Component
+/**
+ * Component
+ */
 @import "object/component/button";
 @import "object/component/form";
 @import "object/component/pager";
@@ -27,7 +31,9 @@
 @import "object/component/topicpath";
 @import "object/component/typography";
 
-// Project
+/**
+ * Project
+ */
 @import "object/project/contact";
 @import "object/project/entry";
 @import "object/project/layout-module";

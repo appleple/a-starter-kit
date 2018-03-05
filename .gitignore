@@ -11,4 +11,5 @@ acms.php
 /setup_
 /.idea
 /cache
+/private/backup*
 .DS_Store

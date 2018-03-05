@@ -14,10 +14,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "node ./tools/eslint.js",
     "js:watch": "onchange \"themes/$npm_package_config_theme/src/js\" -- npm run js:build",
-    "js:build": "browserify themes/$npm_package_config_theme/src/js/index.js -t babelify | uglifyjs -cm -o themes/$npm_package_config_theme/dest/bundle.js",    
+    "js:build": "browserify themes/$npm_package_config_theme/src/js/index.js -t babelify | uglifyjs -cm -o themes/$npm_package_config_theme/dest/bundle.js",
     "sync": "browser-sync start --proxy $npm_package_config_local --files ./themes/$npm_package_config_theme/** --open $npm_package_config_local",
     "css:watch": "gulp",
-    "css:build": "gulp acmssass && gulp acmsmin && gulp sass",
+    "css:build": "gulp sass",
     "start": "npm-run-all -p js:watch css:watch sync",
     "build": "npm-run-all js:build css:build"
   },
@@ -54,9 +54,10 @@
     "uglify-js": "^3.0.8"
   },
   "dependencies": {
+    "a-dispatcher": "^1.0.1",
     "awesome-sass-easing": "^1.1.2",
+    "font-awesome": "^4.7.0",
     "google-maps": "^3.2.1",
-    "underscore": "^1.8.3",
-    "url-dispatcher": "^0.1.5"
+    "underscore": "^1.8.3"
   }
 }
