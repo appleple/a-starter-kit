@@ -1,5 +1,4 @@
 import Dispatcher from 'a-dispatcher';
-import './polyfill';
 import samplePage from './sample';
 
 const dispatcher = new Dispatcher();
