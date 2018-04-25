@@ -64,6 +64,8 @@
   "dependencies": {
     "a-dispatcher": "^1.0.1",
     "awesome-sass-easing": "^1.1.2",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
   }
 }
