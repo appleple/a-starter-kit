@@ -9,7 +9,6 @@ php.ini
 .DS_Store
 acms.php
 /setup_
-/.idea
+.idea
 /cache
 /private/backup*
-.DS_Store
