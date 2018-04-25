@@ -12,7 +12,6 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "js:lint": "node ./tools/eslint.js",
     "js:watch": "webpack --watch --config webpack.config.js",
     "js:build": "NODE_ENV=production webpack -p --config webpack.config.js",
     "sync": "browser-sync start --proxy $npm_package_config_local --files ./themes/$npm_package_config_theme/** --open $npm_package_config_local",
