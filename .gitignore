@@ -8,7 +8,7 @@ php.ini
 /node_modules
 .DS_Store
 acms.php
-/setup_
+/*setup*
 .idea
 /cache
 /private/backup*
