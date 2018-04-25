@@ -3,16 +3,16 @@
  *  gulp-csscombを動作させたい場合は、「*2」の記述をコメントアウトしてください。
  */
 const gulp = require('gulp');
-const rename = require('gulp-rename'),
-  sass = require('gulp-sass'),
-  path = require('path'),
-  cssnano = require('gulp-cssnano'),
-  watch = require('gulp-watch'),
-  autoprefixer = require('gulp-autoprefixer'),
-  csscomb = require('gulp-csscomb'),
-  replace = require('gulp-replace'),
-  package = require('./package.json');
-
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const path = require('path');
+const fs = require('fs-extra');
+const cssnano = require('gulp-cssnano');
+const watch = require('gulp-watch');
+const autoprefixer = require('gulp-autoprefixer');
+const csscomb = require('gulp-csscomb');
+const replace = require('gulp-replace');
+const package = require('./package.json');
 const rootTheme = package.config.theme;
 
 //テーマ
@@ -41,6 +41,7 @@ gulp.task('sass', () => {
 
 // プロジェクトのSCSSとCSSファイルを監視する
 gulp.task('project', () => {
+  fs.copy('node_modules/font-awesome/fonts', `themes/${rootTheme}/fonts`);
   gulp.watch(`themes/${rootTheme}/src/scss/**`, ['sass']);
 });
 
