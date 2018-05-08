@@ -1,0 +1,39 @@
+## ブラウザへのキャッシュの設定
+#<IfModule mod_expires.c>
+#  ExpiresActive On
+#
+#  # キャッシュの初期化（1秒に設定）
+#  ExpiresDefault "access plus 1 seconds"
+#
+#  # MIME Type ごとのキャッシュ設定
+#  ExpiresByType text/css "access plus 1 weeks"
+#  ExpiresByType text/js "access plus 1 weeks"
+#  ExpiresByType text/javascript "access plus 1 weeks"
+#  ExpiresByType image/gif "access plus 1 day"
+#  ExpiresByType image/jpeg "access plus 1 day"
+#  ExpiresByType image/png "access plus 1 day"
+#</IfModule>
+
+RewriteEngine on
+
+# RewriteBase /
+
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# RewriteCond %{HTTP_HOST} ^(example\.com)(:80)?
+# RewriteRule ^(.*)$ http://www.example.com/$1 [R=301,NE,L]
+
+RewriteRule ^(.*)index\.html(.*)$ https://%{HTTP_HOST}/$1$2 [R=301,NE,L]
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule .* - [L]
+
+RewriteCond %{REQUEST_URI} (.*(^|/)[^\./]+)$
+RewriteRule .* %1/ [L,R=301]
+
+
+# a-blog cms以外のコンテンツ（a-blog cmsを動作させないディレクトリ）
+# RewriteCond %{REQUEST_URI} !^/?other/
+# RewriteCond %{REQUEST_URI} !^/?other2/
+
+RewriteRule ((\.(html|htm|php|xml|txt|js|json|css|yaml|csv))|/)$ index.php [L]

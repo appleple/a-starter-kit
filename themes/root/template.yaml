@@ -1,5 +1,5 @@
 tpl_top         : _top.html
-tpl_index       : _index.html
+tpl_index       : index.html
 tpl_detail      : _entry.html
 tpl_404         : _404.html
 tpl_admin       : admin.html
