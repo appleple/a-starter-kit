@@ -12,3 +12,4 @@ acms.php
 .idea
 /cache
 /private/backup*
+/themes/system*
