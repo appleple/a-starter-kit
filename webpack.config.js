@@ -18,33 +18,27 @@ const config = {
         test: /\.(js)$/,
         exclude: /node_modules/,
         enforce: 'pre',
-        use: {
-          loader: 'eslint-loader',
-          options: {
-            fix: true,
-            failOnError: false
-          }
+        loader: 'eslint-loader',
+        options: {
+          fix: true,
+          failOnError: false
         }
       },
       {
         test: /\.(js)$/,
-        include: /src\/js/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['es2015','stage-0', 'react'],
-            plugins: babelPlugins
-          }
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        options: {
+          presets: ['env', 'react'],
+          plugins: babelPlugins
         }
       },
       {
         test: /\.(jpg|png|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 20480
-          }
-        },
+        loader: 'url-loader',
+        options: {
+          limit: 20480
+        }
       }
     ]
   },
