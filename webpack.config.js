@@ -25,7 +25,7 @@ const config = {
     path: `${__dirname}/themes/${pkg.config.theme}/dest/`,
     publicPath: `/themes/${pkg.config.theme}/dest/`,
     filename: `[name].js`,
-    chunkFilename: `[name].chunk.js?date=${new Date().getTime()}` // dynamic import
+    chunkFilename: `[name].chunk.js?date=${new Date().getTime()}`
   },
   optimization: {
     namedModules: true,
@@ -70,10 +70,16 @@ const config = {
         }
       },
       {
-        test: /\.(css|scss)$/,
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.(scss)$/,
         include: /src\/scss/,
         use: [
-          "vue-style-loader",
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -89,10 +95,8 @@ const config = {
           {
             loader: 'postcss-loader',
             options: {
-              // ソースマップの利用有無
               sourceMap: enabledSourceMap,
               plugins: [
-                // Autoprefixer
                 autoprefixer({
                   grid: true
                 })
@@ -102,7 +106,6 @@ const config = {
           {
             loader: 'sass-loader',
             options: {
-              // ソースマップの利用有無
               sourceMap: enabledSourceMap,
             }
           },
