@@ -30,8 +30,6 @@
     background: 0;
   }
   &:first-child:before {
-    content: $fa-var-home;
-    @include fa-icon();
     @include font-size(13);
     color: $primary-color;
   }

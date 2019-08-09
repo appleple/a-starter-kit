@@ -1,70 +1,159 @@
 const webpack = require('webpack');
-const path = require('path');
 const pkg = require('./package.json');
-const babelPlugins = [];
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const RemoveStrictPlugin = require('remove-strict-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+
+const babelPlugins = [
+  'transform-es3-property-literals',
+  'transform-es3-member-expression-literals',
+  '@babel/plugin-transform-runtime',
+  '@babel/plugin-syntax-dynamic-import',
+  '@babel/plugin-proposal-class-properties',
+  '@babel/plugin-proposal-object-rest-spread'
+];
+
+const enabledSourceMap = (process.env.NODE_ENV !== 'production');
 
 const config = {
   cache: true,
   entry: {
-    'bundle': `./themes/${pkg.config.theme}/src/js/index.js`
+    bundle: `${__dirname}/themes/${pkg.config.theme}/src/js/index.js`
   },
   output: {
-    path: __dirname,
-    filename: `./themes/${pkg.config.theme}/dest/[name].js`
+    path: `${__dirname}/themes/${pkg.config.theme}/dest/`,
+    filename: `[name].js`,
+    // chunkFilename: `[name].chunk.js?date=${new Date().getTime()}` // dynamic import
   },
+  // optimization: {
+  //   splitChunks: {
+  //     name: 'vendor',
+  //     chunks: 'initial'
+  //   }
+  // },
   module: {
     rules: [
       {
-        test: /\.(js)$/,
-        exclude: /node_modules/,
-        enforce: 'pre',
-        loader: 'eslint-loader',
-        options: {
-          fix: true,
-          failOnError: false
+        test: /\.(js|ts|tsx)$/,
+        include: /js\/src/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-env',
+                {
+                  targets: {
+                    ie: 11,
+                  },
+                  useBuiltIns: 'usage',
+                  corejs: 3
+                }
+              ],
+            ],
+          }
         }
       },
       {
-        test: /\.(js)$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        options: {
-          presets: ['env', 'react'],
-          plugins: babelPlugins
-        }
+        test: /\.(css|scss)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+              sourceMap: enabledSourceMap,
+              // 0 => no loaders (default);
+              // 1 => postcss-loader;
+              // 2 => postcss-loader, sass-loader
+              importLoaders: 2
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              // ソースマップの利用有無
+              sourceMap: enabledSourceMap,
+              plugins: [
+                // Autoprefixer
+                autoprefixer({
+                  grid: true
+                })
+              ]
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              // ソースマップの利用有無
+              sourceMap: enabledSourceMap,
+            }
+          },
+        ],
       },
       {
-        test: /\.(jpg|png|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+        test: /\.(png|jpg|jpeg|gif|woff|svg)$/,
         loader: 'url-loader',
         options: {
           limit: 20480
         }
+      },
+      {
+        test: /\.(ttf|eot|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: `themes/${pkg.config.theme}/fonts/`,
+              publicPath: path => `fonts/${path}`,
+            }
+          }
+        ]
       }
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env": {
+      'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: `[name].chunk.css?date=${new Date().getTime()}`
+    }),
+    new RemoveStrictPlugin()
   ]
 };
 
 if (process.env.NODE_ENV === 'production') {
-  config.plugins.push(
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-    })
-  );
-  babelPlugins.push("transform-remove-strict-mode");
-  babelPlugins.push("babel-plugin-transform-dead-code-elimination");
-
+  config.mode = 'production';
+  config.plugins.push(new webpack.optimize.OccurrenceOrderPlugin());
+  babelPlugins.push('babel-plugin-minify-dead-code-elimination');
 } else {
-  config.devtool = "inline-source-map";
+  config.mode = 'development';
+  config.devtool = 'inline-source-map';
+  config.devServer = {
+    open: true,
+    openPage: '',
+    inline: true,
+    hot: false,
+    contentBase: `${__dirname}/themes/${pkg.config.theme}/dest`,
+    publicPath:`/themes/${pkg.config.theme}/dest/`,
+    watchContentBase: true,
+    port: 3000,
+    proxy: {
+      '**': {
+        target: {
+          host: pkg.config.local,
+          protocol: 'http:',
+          port: 80
+        },
+        secure: false,
+        changeOrigin: true
+      }
+    }
+  };
 }
 
 module.exports = config;

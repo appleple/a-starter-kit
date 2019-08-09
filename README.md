@@ -26,6 +26,15 @@ $ npm run build
 上のコマンドと同じようにビルドされますが、`developmentビルド` で実行されるためproductionビルドよりは早いです。
 しかし、納品時には必ず `npm run build` しましょう。
 
+LiveReloadを行う
+
 ```
 $ npm run start
 ```
+
+Watchのみ
+
+```
+$ npm run dev
+```
+

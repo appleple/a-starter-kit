@@ -1,3 +1,3 @@
 export default () => {
-  console.log('hogehoge');
+  console.log('sample page');
 };
