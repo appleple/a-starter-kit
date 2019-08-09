@@ -23,3 +23,4 @@ php.ini
 node_modules
 /ioncube
 /package-lock.json
+/themes/system

@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const pkg = require('./package.json');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RemoveStrictPlugin = require('remove-strict-webpack-plugin');
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const autoprefixer = require('autoprefixer');
 
 const babelPlugins = [
@@ -22,20 +23,35 @@ const config = {
   },
   output: {
     path: `${__dirname}/themes/${pkg.config.theme}/dest/`,
+    publicPath: `/themes/${pkg.config.theme}/dest/`,
     filename: `[name].js`,
-    // chunkFilename: `[name].chunk.js?date=${new Date().getTime()}` // dynamic import
+    chunkFilename: `[name].chunk.js?date=${new Date().getTime()}` // dynamic import
   },
-  // optimization: {
-  //   splitChunks: {
-  //     name: 'vendor',
-  //     chunks: 'initial'
-  //   }
-  // },
+  optimization: {
+    namedModules: true,
+    namedChunks: true,
+    splitChunks: {
+      cacheGroups: {
+        default: false
+      }
+    }
+  },
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        include: /src\/js/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            scss: 'vue-style-loader!css-loader!sass-loader', // <style lang="scss">
+            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax' // <style lang="sass">
+          }
+        }
+      },
+      {
         test: /\.(js|ts|tsx)$/,
-        include: /js\/src/,
+        include: /src\/js/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -55,7 +71,9 @@ const config = {
       },
       {
         test: /\.(css|scss)$/,
+        include: /src\/scss/,
         use: [
+          "vue-style-loader",
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -113,6 +131,7 @@ const config = {
     ]
   },
   plugins: [
+    new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
@@ -123,7 +142,13 @@ const config = {
       chunkFilename: `[name].chunk.css?date=${new Date().getTime()}`
     }),
     new RemoveStrictPlugin()
-  ]
+  ],
+  resolve: {
+    extensions: [".vue", ".js"],
+    alias: {
+      "vue$": "vue/dist/vue.esm.js"
+    }
+  }
 };
 
 if (process.env.NODE_ENV === 'production') {
@@ -139,7 +164,7 @@ if (process.env.NODE_ENV === 'production') {
     inline: true,
     hot: false,
     contentBase: `${__dirname}/themes/${pkg.config.theme}/dest`,
-    publicPath:`/themes/${pkg.config.theme}/dest/`,
+    publicPath: `/themes/${pkg.config.theme}/dest/`,
     watchContentBase: true,
     port: 3000,
     proxy: {
