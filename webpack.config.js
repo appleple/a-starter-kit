@@ -70,15 +70,8 @@ const config = {
         }
       },
       {
-        test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader'
-        ]
-      },
-      {
-        test: /\.(scss)$/,
-        include: /src\/scss/,
+        test: /\.(scss|css)$/,
+        include: /src\/(scss|js)/,
         use: [
           MiniCssExtractPlugin.loader,
           {
