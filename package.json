@@ -6,7 +6,7 @@
     "CMS"
   ],
   "config": {
-    "local": "http://example.lab",
+    "local": "example.lab",
     "theme": "root"
   },
   "main": "index.js",
