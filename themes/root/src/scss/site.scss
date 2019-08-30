@@ -3,7 +3,7 @@
 /**
  * Original
  */
-@import "foundation/acms";
+//@import "foundation/acms";
 @import "foundation/variables";
 @import "foundation/mixins";
 
@@ -26,7 +26,6 @@
 @import "object/component/button";
 @import "object/component/form";
 @import "object/component/pager";
-@import "object/component/page-title";
 @import "object/component/topicpath";
 @import "object/component/typography";
 
@@ -35,5 +34,3 @@
  */
 @import "object/project/contact";
 @import "object/project/entry";
-@import "object/project/layout-module";
-@import "object/project/offcanvas";

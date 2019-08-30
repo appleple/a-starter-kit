@@ -9,5 +9,10 @@
 # jquery_version: 1.11.1 # (2.1.1|2.0.3|1.11.1|1.10.1|1.9.1|1.8.3|1.7.2) 2.xはIE9〜
 # jquery_migrate: off
 
-forbid_direct_access_tpl  : /^_/ # off | /^_/  パスのディレクトリまたはファイルがこの正規表現に一致したものは直接表示させない
+same_login_enable: on
+html_format_validate: on
+entry_301_redirect: on
+forbid_direct_access_tpl: /^_/ # off | /^_/  パスのディレクトリまたはファイルがこの正規表現に一致したものは直接表示させない
 forbid_tpl_inheritance_when_path_unresolved: on # on | off パス解決に失敗した時にテンプレートを継承しないようにする
+subscriber_cache: on
+cache_expire_client: 200

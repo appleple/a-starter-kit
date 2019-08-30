@@ -31,9 +31,8 @@ const config = {
     namedModules: true,
     namedChunks: true,
     splitChunks: {
-      cacheGroups: {
-        default: false
-      }
+      name: 'vendor',
+      chunks: 'initial'
     }
   },
   module: {

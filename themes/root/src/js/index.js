@@ -1,44 +1,33 @@
-import Dispatcher from 'a-dispatcher';
-import { library, dom, config } from '@fortawesome/fontawesome-svg-core';
-import { faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookSquare, faFacebook, faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons';
+import './lib/polyfill';
 import domContentLoaded from 'dom-content-loaded';
-import examplePage from './example';
-
-
-import '../scss/site.scss'; // styleの読み込み
-
-/**
- * ルーティング設定
- */
-const dispatcher = new Dispatcher();
-dispatcher.addRoute('^/example', examplePage);
-dispatcher.run(location.pathname);
+import fonts from './fonts';
+// import Dispatcher from 'a-dispatcher';
+// import examplePage from './example';
 
 /**
- * fontawesome5
- *
- * 必要なアイコンのみインポートして、library.add で追加します。命名規則はクラス名（ケバブケース）をキャメルケースにしたものです。
- * e.g. <i class="fas fa-sign-out-alt"></i>   -->   faSignOutAlt
- * IconList: https://fontawesome.com/icons
+ * スタイルの読み込み
  */
-config.searchPseudoElements = true;
-library.add(faUser, faSignOutAlt, faFacebookSquare, faFacebook, faTwitter, faInstagram, faGithub);
-dom.watch();
+import '../scss/site.scss';
 
 /**
  * Content Ready
  */
 domContentLoaded(async () => {
-  if (!!document.querySelector('#js-vue-example')) {
-    const vueApp = await import(/* webpackChunkName: "vue-app" */'./app.js');
-    vueApp.default();
-  }
+
 });
 
 /**
- * ACMS Ready
+ * Dynamic Import
  */
-ACMS.Ready(() => {
+(async () => {
+  // トップページ
+  if (window.location.pathname === '/') {
+    const top = await import(/* webpackChunkName: "top" */'./containers/top');
+    top.default();
+  }
+})();
 
-});
+/**
+ * FontAwesome 5
+ */
+fonts();
