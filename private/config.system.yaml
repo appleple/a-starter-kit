@@ -16,3 +16,5 @@ forbid_direct_access_tpl: /^_/ # off | /^_/  パスのディレクトリまた�
 forbid_tpl_inheritance_when_path_unresolved: on # on | off パス解決に失敗した時にテンプレートを継承しないようにする
 subscriber_cache: on
 cache_expire_client: 200
+remove_comment: on
+remove_blank: on
