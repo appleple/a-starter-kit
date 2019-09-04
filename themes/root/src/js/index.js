@@ -16,6 +16,7 @@ import '../scss/site.scss';
 domContentLoaded(async () => {
   new LazyLoad({
     elements_selector: '.lazy',
+    data_src: 'original',
     threshold: 0
   });
 });

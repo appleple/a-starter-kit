@@ -1,0 +1,48 @@
+@extends("/_layouts/unit.html")
+
+@section(image-unit)
+<!-- 画像 -->
+<div class="column-image-{align}{display_size_class}"{display_size}[raw]><!-- BEGIN link#front --><!-- BEGIN_IF [{url}/nem/] -->
+	<a href="{url}"{viewer}[raw] data-caption="{caption}[nl2br|delnl]"><!-- END_IF --><!-- END link#front -->
+		<img class="lazy columnImage"
+			 src="/images/loading.jpeg"
+			 data-original="%{HTTP_ROOT}{path}"
+			 alt="{alt}[delnl]"
+			 width="{x}"
+			 height="{y}"><!-- BEGIN link#rear -->
+	</a><!-- END link#rear --><!-- BEGIN_IF [{caption}[delnl]/nem] -->
+	<p class="caption">{caption}[nl2br]</p><!-- END_IF -->
+</div>
+@endsection
+
+@section(media-unit)
+<!-- media -->
+<div class="column-media-{align}{display_size_class}"{display_size}[raw]><!-- BEGIN type#image -->
+	<!-- BEGIN link#front -->
+	<a href="{url}"{viewer}[raw]><!-- END link#front -->
+		<img class="lazy columnImage"
+			 src="/images/loading.jpeg"
+			 data-original="%{HTTP_ROOT}{path}[resizeImg({x})]"
+			 alt="{alt}"
+			 width="{x}"><!-- BEGIN link#rear -->
+	</a><!-- END link#rear --><!-- BEGIN_IF [{caption}[delnl]/nem] -->
+	<p class="caption">{caption}[nl2br]</p><!-- END_IF -->
+
+	<!-- END type#image --><!-- BEGIN type#svg -->
+
+	<!-- BEGIN link#front -->
+	<a href="{url}"{viewer}[raw]><!-- END link#front -->
+		<img class="columnImage" src="%{HTTP_ROOT}{path}" alt="{alt}" width="{x}"><!-- BEGIN link#rear -->
+	</a><!-- END link#rear --><!-- BEGIN_IF [{caption}[delnl]/nem] -->
+	<p class="caption">{caption}[nl2br]</p><!-- END_IF -->
+
+	<!-- END type#svg --><!-- BEGIN type#file -->
+
+	<a href="{url}" target="_blank"><!-- BEGIN_IF [{thumbnail}/nem/] -->
+		<img class="columnIcon" src="%{HTTP_ARCHIVES_DIR}{thumbnail}" alt="{alt}" width="{x}" height="{y}"><!-- ELSE -->
+		<img class="columnIcon" src="%{HTTP_ROOT}{icon}" alt="{alt}" width="{x}" height="{y}"><!-- END_IF -->
+	</a><!-- BEGIN_IF [{caption}[delnl]/nem] -->
+	<p class="caption">{caption}[nl2br]</p><!-- END_IF -->
+	<!-- END type#file -->
+</div>
+@endsection

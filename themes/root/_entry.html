@@ -1,5 +1,54 @@
 @extends("/_layouts/base.html")
 
 @section("main")
-<p>継承したコンテンツ</p>
+<!-- BEGIN_MODULE Entry_Body -->
+<div>
+	<!-- BEGIN notFound -->
+	<p>ただいまページを準備しております。もうしばらくお待ちください。</p>
+	<!-- END notFound -->
+
+	<!-- BEGIN entry:loop -->
+	@include("/admin/entry/revision-info.html")
+
+	<div class="acms-page-header">
+		<!-- BEGIN pageHubHeader:veil -->
+		<div>
+			<p><!-- BEGIN date:veil --><time datetime="{date#Y}-{date#m}-{date#d}">{date#Y}年{date#m}月{date#d}日</time>
+				<!-- END date:veil --><!-- BEGIN category:loop -->
+				<span class="acms-label"><a href="{url}">{name}</a></span>
+				<!-- BEGIN glue -->
+				<
+				<!-- END glue -->
+				<!-- END category:loop --><!-- BEGIN new:touch -->
+				<span class="acms-label acms-label-warning">NEW</span>
+				<!-- END new:touch --></p>
+		</div><!-- END pageHubHeader:veil -->
+
+		<!-- BEGIN title:veil -->
+		<h2><a href="{titleUrl}">{title}</a></h2>
+		<!-- END title:veil -->
+	</div>
+	<div>
+		<div>
+			<!-- BEGIN unit:veil -->
+			<div class="acms-entry">
+				<div class="acms-grid-r">
+					@include("/include/unit.html")
+				</div>
+			</div>
+			<hr class="clearHidden">
+			<!-- END unit:veil -->
+
+			<!-- BEGIN continueLink:veil -->
+			<p><a href="{continueUrl}" class="acms-btn-flat"><span class="acms-icon-arrow-right"></span>「{continueName}」の続きを読む</a></p>
+			<!-- END continueLink:veil -->
+
+			@include("/admin/entry/edit-%{IS_ADMIN}.html")
+
+			@include("/admin/entry/action.html")
+		</div>
+	</div>
+	<!-- END entry:loop -->
+</div>
+<!-- END_MODULE Entry_Body -->
 @endsection
