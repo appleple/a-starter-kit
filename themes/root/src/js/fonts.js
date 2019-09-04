@@ -1,6 +1,6 @@
 import { library, dom, config } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookSquare, faFacebook, faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 /**
  * fontawesome5
@@ -10,7 +10,7 @@ import { faFacebookSquare, faFacebook, faTwitter, faInstagram, faGithub } from '
  * IconList: https://fontawesome.com/icons
  */
 export default () => {
-  config.searchPseudoElements = true;
-  library.add(faUser, faSignOutAlt, faFacebookSquare, faFacebook, faTwitter, faInstagram, faGithub);
+  config.searchPseudoElements = false;
+  library.add(faUser, faSignOutAlt, faFacebook, faTwitter, faInstagram);
   dom.watch();
 };
