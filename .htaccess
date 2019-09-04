@@ -20,6 +20,12 @@ RewriteEngine on
 
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
+RewriteCond %{HTTP_ACCEPT} image/webp
+RewriteCond %{REQUEST_FILENAME} (.*)\.(jpe?g|png)$
+RewriteCond %{REQUEST_FILENAME}\.webp -f
+RewriteCond %{QUERY_STRING} !type=original
+RewriteRule (.+)\.(jpe?g|png)$ %{REQUEST_FILENAME}.webp [T=image/webp]
+
 # RewriteCond %{HTTP_HOST} ^(example\.com)(:80)?
 # RewriteRule ^(.*)$ http://www.example.com/$1 [R=301,NE,L]
 

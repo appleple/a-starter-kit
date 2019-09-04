@@ -1,4 +1,5 @@
 import './lib/polyfill';
+import LazyLoad from 'vanilla-lazyload';
 import domContentLoaded from 'dom-content-loaded';
 import fonts from './fonts';
 // import Dispatcher from 'a-dispatcher';
@@ -13,7 +14,10 @@ import '../scss/site.scss';
  * Content Ready
  */
 domContentLoaded(async () => {
-
+  new LazyLoad({
+    elements_selector: '.lazy',
+    threshold: 0
+  });
 });
 
 /**
