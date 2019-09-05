@@ -24,3 +24,4 @@ node_modules
 /ioncube
 /package-lock.json
 /themes/system
+/themes/root/dest

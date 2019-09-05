@@ -1,8 +1,11 @@
 const webpack = require('webpack');
 const pkg = require('./package.json');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlCriticalWebpackPlugin = require('html-critical-webpack-plugin');
 const RemoveStrictPlugin = require('remove-strict-webpack-plugin');
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const autoprefixer = require('autoprefixer');
 
 const babelPlugins = [
@@ -132,11 +135,27 @@ const config = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
     }),
+    new RemoveStrictPlugin(),
+    new HtmlWebpackPlugin({
+      template: `${__dirname}/themes/${pkg.config.theme}/src/index.html`,
+      filename: 'index.html',
+      inject: true
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: `[name].chunk.css?date=${new Date().getTime()}`
     }),
-    new RemoveStrictPlugin()
+    new HtmlCriticalWebpackPlugin({
+      base: `${__dirname}/themes/${pkg.config.theme}/dest/`,
+      src: 'index.html',
+      dest: 'index.html',
+      inline: true,
+      width: 1420,
+      height: 500,
+      penthouse: {
+        blockJSRequests: false
+      }
+    })
   ],
   resolve: {
     extensions: [".vue", ".js"],
@@ -146,6 +165,9 @@ const config = {
   }
 };
 
+if (process.env.ANALYZE === 'true') {
+  config.plugins.push(new BundleAnalyzerPlugin.BundleAnalyzerPlugin());
+}
 if (process.env.NODE_ENV === 'production') {
   config.mode = 'production';
   config.plugins.push(new webpack.optimize.OccurrenceOrderPlugin());
