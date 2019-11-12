@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlCriticalWebpackPlugin = require('html-critical-webpack-plugin');
 const RemoveStrictPlugin = require('remove-strict-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 const babelPlugins = [
@@ -27,7 +28,7 @@ const config = {
   output: {
     path: `${__dirname}/themes/${pkg.config.theme}/dest/`,
     publicPath: `/themes/${pkg.config.theme}/dest/`,
-    filename: `[name].js`,
+    filename: '[name].js',
     chunkFilename: `[name].chunk.js?date=${new Date().getTime()}`
   },
   optimization: {
@@ -40,6 +41,19 @@ const config = {
   },
   module: {
     rules: [
+      {
+        test: /\.(js|vue)$/,
+        exclude: /node_modules/,
+        include: /src\/js/,
+        enforce: 'pre',
+        use: {
+          loader: 'eslint-loader',
+          options: {
+            fix: true,
+            failOnError: false
+          }
+        }
+      },
       {
         test: /\.vue$/,
         include: /src\/js/,
@@ -130,6 +144,10 @@ const config = {
   },
   plugins: [
     new VueLoaderPlugin(),
+    new StyleLintPlugin({
+      files: ['**/*.{vue,scss}'],
+      fix: true,
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
@@ -158,9 +176,9 @@ const config = {
     })
   ],
   resolve: {
-    extensions: [".vue", ".js"],
+    extensions: ['.vue', '.js'],
     alias: {
-      "vue$": "vue/dist/vue.esm.js"
+      vue$: 'vue/dist/vue.esm.js'
     }
   }
 };
